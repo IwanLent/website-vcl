@@ -1,10 +1,10 @@
 /* Basis stijlen en reset */
 :root {
-    --primary-color: #2c5282;
-    --secondary-color: #4299e1;
-    --text-color: #2d3748;
+    --primary-color: #000000;
+    --secondary-color: #007984;
+    --text-color: #333333;
     --background-color: #ffffff;
-    --accent-color: #f6ad55;
+    --accent-color: #007984;
     --max-width: 1200px;
 }
 
@@ -29,7 +29,7 @@ body {
 
 /* Header en navigatie */
 header {
-    background-color: var(--background-color);
+    background-color: var(--primary-color);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
@@ -45,9 +45,26 @@ header {
     align-items: center;
 }
 
-.logo img {
-    max-height: 50px;
-    width: auto;
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1;
+}
+
+.logo-top {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: lowercase;
+}
+
+.logo-bottom {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
 }
 
 .nav-links {
@@ -58,7 +75,7 @@ header {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-color);
+    color: #ffffff;
     font-weight: 500;
     padding: 0.5rem;
     transition: color 0.3s ease;
@@ -66,7 +83,7 @@ header {
 
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
-    color: var(--primary-color);
+    color: var(--accent-color);
 }
 
 /* Mobiel menu */
@@ -184,7 +201,7 @@ header {
 /* Footer */
 footer {
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     padding: 3rem 2rem 1rem;
 }
 
@@ -205,13 +222,13 @@ footer {
 }
 
 .social-links a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
-    transition: opacity 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-    opacity: 0.8;
+    color: var(--accent-color);
 }
 
 .footer-bottom {
@@ -282,7 +299,7 @@ footer {
 /* Routes pagina */
 .routes-header {
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     text-align: center;
     padding: 4rem 2rem;
     margin-bottom: 3rem;
@@ -344,15 +361,15 @@ footer {
 .button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--accent-color);
+    color: #ffffff;
     text-decoration: none;
     border-radius: 4px;
     transition: background-color 0.3s ease;
 }
 
 .button:hover {
-    background-color: var(--secondary-color);
+    background-color: #005c64;
 }
 
 /* Responsive aanpassingen voor routes */
@@ -369,7 +386,7 @@ footer {
 /* Veiligheid & Regels pagina */
 .safety-header {
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     text-align: center;
     padding: 4rem 2rem;
     margin-bottom: 3rem;
@@ -478,7 +495,7 @@ footer {
 /* Foto's pagina */
 .photos-header {
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     text-align: center;
     padding: 4rem 2rem;
     margin-bottom: 3rem;
@@ -634,7 +651,7 @@ footer {
 /* Contact pagina */
 .contact-header {
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     text-align: center;
     padding: 4rem 2rem;
     margin-bottom: 3rem;
@@ -749,7 +766,7 @@ footer {
 /* Over ons pagina */
 .about-header {
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     text-align: center;
     padding: 4rem 2rem;
     margin-bottom: 3rem;
@@ -863,4 +880,28 @@ footer {
     .about-join {
         padding: 2rem;
     }
+}
+
+/* Safety notice */
+.safety-notice {
+    background-color: #f7fafc;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+}
+
+.safety-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.safety-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.safety-content p {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+    line-height: 1.8;
 } 

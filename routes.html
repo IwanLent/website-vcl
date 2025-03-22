@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fietsroutes - Fietsclub VCL</title>
+    <title>Fietsroutes - Vélo Club Lent</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <nav class="main-nav" role="navigation" aria-label="Hoofdnavigatie">
             <div class="logo">
-                <img src="images/logo.png" alt="Fietsclub VCL logo" width="150" height="50">
+                <span class="logo-top">vélo club</span>
+                <span class="logo-bottom">LENT</span>
             </div>
             <button class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
                 <span class="hamburger"></span>
@@ -30,39 +31,37 @@
     <main>
         <section class="routes-header">
             <h1>Onze Fietsroutes</h1>
-            <p>Ontdek onze favoriete routes, van korte tochten tot lange afstanden</p>
+            <p>Ontdek onze vaste routes die we elke donderdagavond van april t/m september rijden</p>
         </section>
 
         <section class="routes-grid">
-            <!-- Route 1 -->
+            <!-- WaalRijn Pad -->
             <article class="route-card">
                 <div class="route-map">
-                    <!-- Vervang src met de juiste embed URL van Komoot/Strava -->
                     <iframe 
                         src="https://www.komoot.com/tour/1234567/embed"
                         width="100%" 
                         height="300" 
                         frameborder="0"
-                        title="Route kaart"
+                        title="WaalRijn Pad route kaart"
                         allowfullscreen>
                     </iframe>
                 </div>
                 <div class="route-content">
-                    <h2>Bosroute</h2>
+                    <h2>WaalRijn Pad</h2>
                     <p class="route-meta">
-                        <span>Lengte: 25 km</span>
-                        <span>Moeilijkheid: Gemiddeld</span>
+                        <span>Lengte: 45 km</span>
                     </p>
-                    <p>Een prachtige route door het lokale bosgebied met afwisselende paden en mooie uitzichten.</p>
+                    <p>Een mooie route langs de Waal en de Rijn.</p>
                     <div class="route-actions">
-                        <a href="routes/bosroute.gpx" class="button" download>
+                        <a href="routes/VCLWaalRijnPad45.gpx" class="button" download>
                             Download GPX
                         </a>
                     </div>
                 </div>
             </article>
 
-            <!-- Route 2 -->
+            <!-- Dijken -->
             <article class="route-card">
                 <div class="route-map">
                     <iframe 
@@ -70,26 +69,109 @@
                         width="100%" 
                         height="300" 
                         frameborder="0"
-                        title="Route kaart"
+                        title="Dijken route kaart"
                         allowfullscreen>
                     </iframe>
                 </div>
                 <div class="route-content">
-                    <h2>Waterroute</h2>
+                    <h2>Dijken</h2>
                     <p class="route-meta">
-                        <span>Lengte: 35 km</span>
-                        <span>Moeilijkheid: Gevorderd</span>
+                        <span>Lengte: 65 km</span>
                     </p>
-                    <p>Een uitdagende route langs verschillende waterwegen met mooie bruggen en historische plekken.</p>
+                    <p>Een uitdagende route over de dijken in de omgeving.</p>
                     <div class="route-actions">
-                        <a href="routes/waterroute.gpx" class="button" download>
+                        <a href="routes/VCLDijken65.gpx" class="button" download>
                             Download GPX
                         </a>
                     </div>
                 </div>
             </article>
 
-            <!-- Hier kunnen meer routes worden toegevoegd -->
+            <!-- Kleverberg -->
+            <article class="route-card">
+                <div class="route-map">
+                    <iframe 
+                        src="https://www.komoot.com/tour/7654321/embed"
+                        width="100%" 
+                        height="300" 
+                        frameborder="0"
+                        title="Kleverberg route kaart"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="route-content">
+                    <h2>Kleverberg</h2>
+                    <p class="route-meta">
+                        <span>Lengte: 50 km</span>
+                    </p>
+                    <p>Een uitdagende route met klimwerk op de Kleverberg.</p>
+                    <div class="route-actions">
+                        <a href="routes/VCLKleverberg50.gpx" class="button" download>
+                            Download GPX
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Italiaanseweg -->
+            <article class="route-card">
+                <div class="route-map">
+                    <iframe 
+                        src="https://www.komoot.com/tour/7654321/embed"
+                        width="100%" 
+                        height="300" 
+                        frameborder="0"
+                        title="Italiaanseweg route kaart"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="route-content">
+                    <h2>Italiaanseweg</h2>
+                    <p class="route-meta">
+                        <span>Lengte: 55 km</span>
+                    </p>
+                    <p>Een mooie route via de Italiaanseweg.</p>
+                    <div class="route-actions">
+                        <a href="routes/VCLItaliaanseweg55.gpx" class="button" download>
+                            Download GPX
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Posbank -->
+            <article class="route-card">
+                <div class="route-map">
+                    <iframe 
+                        src="https://www.komoot.com/tour/7654321/embed"
+                        width="100%" 
+                        height="300" 
+                        frameborder="0"
+                        title="Posbank route kaart"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="route-content">
+                    <h2>Posbank</h2>
+                    <p class="route-meta">
+                        <span>Lengte: 65 km</span>
+                    </p>
+                    <p>Een uitdagende route naar de Posbank met prachtige uitzichten.</p>
+                    <div class="route-actions">
+                        <a href="routes/VCLPosbank65.gpx" class="button" download>
+                            Download GPX
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="safety-notice">
+            <div class="safety-content">
+                <h2>Disclaimer</h2>
+                <p>Het rijden van de route is voor eigen risico. Deelnemers gedragen zich volgens de verkeersregels en regels van goed fatsoen en hebben respect voor overige weggebruikers. Het dragen van een valhelm is verplicht.</p>
+                <p>De organisatie is jegens deelnemers en derden in geen geval aansprakelijk voor ongevallen, materiële en immateriële schade en/of (ernstige) letselschade, waaronder schade als gevolg van overlijden.</p>
+            </div>
         </section>
     </main>
 
@@ -97,19 +179,17 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>Email: <a href="mailto:info@fietsclubvcl.nl">info@fietsclubvcl.nl</a></p>
+                <p>Email: <a href="mailto:veloclublent@gmail.com">veloclublent@gmail.com</a></p>
             </div>
             <div class="footer-section">
                 <h3>Volg ons</h3>
                 <ul class="social-links">
-                    <li><a href="#" aria-label="Facebook">Facebook</a></li>
                     <li><a href="#" aria-label="Instagram">Instagram</a></li>
-                    <li><a href="#" aria-label="Strava">Strava</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Fietsclub VCL. Alle rechten voorbehouden.</p>
+            <p>&copy; 2024 Vélo Club Lent. Alle rechten voorbehouden.</p>
         </div>
     </footer>
 
