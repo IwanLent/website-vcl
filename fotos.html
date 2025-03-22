@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foto's - Fietsclub VCL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav" role="navigation" aria-label="Hoofdnavigatie">
+            <div class="logo">
+                <img src="images/logo.png" alt="Fietsclub VCL logo" width="150" height="50">
+            </div>
+            <button class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
+                <span class="hamburger"></span>
+                <span class="menu-text">Menu</span>
+            </button>
+            <ul id="menu-items" class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="routes.html">Routes</a></li>
+                <li><a href="veiligheid.html">Veiligheid & Regels</a></li>
+                <li><a href="fotos.html" aria-current="page">Foto's</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="over-ons.html">Over ons</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="photos-header">
+            <h1>Foto's</h1>
+            <p>Een selectie van onze mooiste momenten</p>
+        </section>
+
+        <section class="photos-grid">
+            <!-- Foto 1 -->
+            <div class="photo-item">
+                <img src="images/foto1.jpg" alt="Fietsers op een mooie route" loading="lazy">
+                <div class="photo-overlay">
+                    <button class="photo-button" aria-label="Vergroot foto">
+                        <span class="icon">+</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Foto 2 -->
+            <div class="photo-item">
+                <img src="images/foto2.jpg" alt="Groep fietsers bij een rustpunt" loading="lazy">
+                <div class="photo-overlay">
+                    <button class="photo-button" aria-label="Vergroot foto">
+                        <span class="icon">+</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Foto 3 -->
+            <div class="photo-item">
+                <img src="images/foto3.jpg" alt="Fietsers op een brug" loading="lazy">
+                <div class="photo-overlay">
+                    <button class="photo-button" aria-label="Vergroot foto">
+                        <span class="icon">+</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Foto 4 -->
+            <div class="photo-item">
+                <img src="images/foto4.jpg" alt="Fietsers bij een picknick" loading="lazy">
+                <div class="photo-overlay">
+                    <button class="photo-button" aria-label="Vergroot foto">
+                        <span class="icon">+</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Foto 5 -->
+            <div class="photo-item">
+                <img src="images/foto5.jpg" alt="Fietsers op een zonnige dag" loading="lazy">
+                <div class="photo-overlay">
+                    <button class="photo-button" aria-label="Vergroot foto">
+                        <span class="icon">+</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Foto 6 -->
+            <div class="photo-item">
+                <img src="images/foto6.jpg" alt="Fietsers bij een landschap" loading="lazy">
+                <div class="photo-overlay">
+                    <button class="photo-button" aria-label="Vergroot foto">
+                        <span class="icon">+</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div class="lightbox" role="dialog" aria-label="Foto vergroting" hidden>
+            <button class="lightbox-close" aria-label="Sluit foto">×</button>
+            <button class="lightbox-prev" aria-label="Vorige foto">←</button>
+            <button class="lightbox-next" aria-label="Volgende foto">→</button>
+            <div class="lightbox-content">
+                <img src="" alt="" class="lightbox-image">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:info@fietsclubvcl.nl">info@fietsclubvcl.nl</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Volg ons</h3>
+                <ul class="social-links">
+                    <li><a href="#" aria-label="Facebook">Facebook</a></li>
+                    <li><a href="#" aria-label="Instagram">Instagram</a></li>
+                    <li><a href="#" aria-label="Strava">Strava</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fietsclub VCL. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/lightbox.js"></script>
+</body>
+</html> 

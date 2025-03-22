@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Fietsclub VCL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav" role="navigation" aria-label="Hoofdnavigatie">
+            <div class="logo">
+                <img src="images/logo.png" alt="Fietsclub VCL logo" width="150" height="50">
+            </div>
+            <button class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
+                <span class="hamburger"></span>
+                <span class="menu-text">Menu</span>
+            </button>
+            <ul id="menu-items" class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="routes.html">Routes</a></li>
+                <li><a href="veiligheid.html">Veiligheid & Regels</a></li>
+                <li><a href="fotos.html">Foto's</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+                <li><a href="over-ons.html">Over ons</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-header">
+            <h1>Contact</h1>
+            <p>Neem contact met ons op voor meer informatie</p>
+        </section>
+
+        <section class="contact-content">
+            <div class="contact-info">
+                <h2>Contactgegevens</h2>
+                <div class="contact-details">
+                    <p>
+                        <strong>Email:</strong>
+                        <a href="mailto:info@fietsclubvcl.nl">info@fietsclubvcl.nl</a>
+                    </p>
+                    <p>
+                        <strong>Telefoon:</strong>
+                        <a href="tel:+31612345678">06-12345678</a>
+                    </p>
+                    <p>
+                        <strong>Adres:</strong>
+                        <br>
+                        Fietsclub VCL<br>
+                        Voorbeeldstraat 123<br>
+                        1234 AB Amsterdam
+                    </p>
+                </div>
+
+                <div class="social-links">
+                    <h3>Volg ons op social media</h3>
+                    <ul>
+                        <li><a href="#" aria-label="Facebook">Facebook</a></li>
+                        <li><a href="#" aria-label="Instagram">Instagram</a></li>
+                        <li><a href="#" aria-label="Strava">Strava</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2>Stuur ons een bericht</h2>
+                <form action="#" method="post" novalidate>
+                    <div class="form-group">
+                        <label for="name">Naam *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefoon</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Onderwerp *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Selecteer een onderwerp</option>
+                            <option value="lidmaatschap">Lidmaatschap</option>
+                            <option value="routes">Routes</option>
+                            <option value="evenementen">Evenementen</option>
+                            <option value="overig">Overig</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Bericht *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="privacy" required>
+                            Ik ga akkoord met de verwerking van mijn gegevens volgens de privacyverklaring *
+                        </label>
+                    </div>
+
+                    <button type="submit" class="button">Verstuur bericht</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:info@fietsclubvcl.nl">info@fietsclubvcl.nl</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Volg ons</h3>
+                <ul class="social-links">
+                    <li><a href="#" aria-label="Facebook">Facebook</a></li>
+                    <li><a href="#" aria-label="Instagram">Instagram</a></li>
+                    <li><a href="#" aria-label="Strava">Strava</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fietsclub VCL. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html> 
