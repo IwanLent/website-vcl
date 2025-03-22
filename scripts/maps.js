@@ -1,74 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Centrum coördinaten voor Lent
-    const lentCoords = [51.8575, 5.8575];
+    // Centrum coördinaten van Lent
+    const lentCoords = [51.8575, 5.8625];
 
     // Functie om een kaart te initialiseren
-    function initMap(elementId, center = lentCoords, zoom = 13) {
-        const map = L.map(elementId).setView(center, zoom);
+    function initMap(elementId) {
+        const map = L.map(elementId).setView(lentCoords, 12);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution: '© OpenStreetMap contributors'
         }).addTo(map);
         return map;
     }
 
-    // Functie om GPX bestand te laden en op de kaart te tonen
+    // Functie om GPX bestand te laden en te tekenen op de kaart
     async function loadGPX(map, gpxFile) {
         try {
             const response = await fetch(gpxFile);
             const gpxText = await response.text();
             const parser = new DOMParser();
-            const gpx = parser.parseFromString(gpxText, 'text/xml');
+            const gpxDoc = parser.parseFromString(gpxText, 'text/xml');
             
-            const points = [];
-            const trackpoints = gpx.getElementsByTagName('trkpt');
-            
-            for (let point of trackpoints) {
-                const lat = parseFloat(point.getAttribute('lat'));
-                const lon = parseFloat(point.getAttribute('lon'));
-                points.push([lat, lon]);
-            }
+            const trackPoints = Array.from(gpxDoc.getElementsByTagName('trkpt')).map(trkpt => [
+                parseFloat(trkpt.getAttribute('lat')),
+                parseFloat(trkpt.getAttribute('lon'))
+            ]);
 
-            // Teken de route op de kaart
-            const polyline = L.polyline(points, {
+            const polyline = L.polyline(trackPoints, {
                 color: '#007984',
                 weight: 4,
                 opacity: 0.8
             }).addTo(map);
 
-            // Pas de kaart zoom aan om de hele route te tonen
             map.fitBounds(polyline.getBounds());
-
         } catch (error) {
-            console.error('Fout bij laden GPX bestand:', error);
+            console.error('Fout bij laden GPX:', error);
         }
     }
 
-    // Initialiseer alle kaarten
-    const maps = {
-        'waalrijn': {
-            map: initMap('map-waalrijn'),
-            gpx: 'routes/VCLWaalRijnPad45.gpx'
-        },
-        'dijken': {
-            map: initMap('map-dijken'),
-            gpx: 'routes/VCLDijken65.gpx'
-        },
-        'kleverberg': {
-            map: initMap('map-kleverberg'),
-            gpx: 'routes/VCLKleverberg50.gpx'
-        },
-        'italiaanseweg': {
-            map: initMap('map-italiaanseweg'),
-            gpx: 'routes/VCLItaliaanseweg55.gpx'
-        },
-        'posbank': {
-            map: initMap('map-posbank'),
-            gpx: 'routes/VCLPosbank65.gpx'
-        }
+    // Alle routes met hun GPX bestanden
+    const routes = {
+        'map-waalrijn': 'routes/VCLWaalRijnPad45.gpx',
+        'map-dijken': 'routes/VCLDijken65.gpx',
+        'map-kleverberg': 'routes/VCLKleverberg50.gpx',
+        'map-italiaanseweg': 'routes/VCLItaliaanseweg55.gpx',
+        'map-posbank': 'routes/VCLPosbank65.gpx'
     };
 
-    // Laad GPX bestanden voor alle kaarten
-    Object.values(maps).forEach(({ map, gpx }) => {
-        loadGPX(map, gpx);
-    });
+    // Initialiseer alle kaarten en laad GPX bestanden
+    for (const [mapId, gpxFile] of Object.entries(routes)) {
+        const mapElement = document.getElementById(mapId);
+        if (mapElement) {
+            const map = initMap(mapId);
+            loadGPX(map, gpxFile);
+        }
+    }
 }); 
