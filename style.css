@@ -1076,4 +1076,42 @@ footer {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive aanpassingen voor het logo */
+@media (max-width: 768px) {
+    .logo {
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .logo-image {
+        height: 35px;
+    }
+
+    .logo-text {
+        font-size: 0.9em;
+    }
+
+    .logo-top {
+        font-size: 1.2rem;
+    }
+
+    .logo-bottom {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image {
+        height: 30px;
+    }
+
+    .logo-top {
+        font-size: 1rem;
+    }
+
+    .logo-bottom {
+        font-size: 1.4rem;
+    }
 } 
