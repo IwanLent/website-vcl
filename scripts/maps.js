@@ -1,41 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Centrum coördinaten van Lent
-    const lentCoords = [51.8575, 5.8625];
-
-    // Functie om een kaart te initialiseren
-    function initMap(elementId) {
-        const map = L.map(elementId).setView(lentCoords, 12);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-        return map;
-    }
-
-    // Functie om route te laden en te tekenen op de kaart
-    async function loadRoute(map, routeId) {
-        try {
-            // Haal de route data op van de publieke Komoot pagina
-            const response = await fetch(`https://www.komoot.com/nl-nl/tour/${routeId}/embed`);
-            const html = await response.text();
+    // Functie om een Komoot embedded kaart te laden
+    function loadKomootMap(elementId, routeId) {
+        const mapElement = document.getElementById(elementId);
+        if (mapElement) {
+            // Maak een iframe voor de Komoot embedded kaart
+            const iframe = document.createElement('iframe');
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.border = 'none';
+            iframe.style.borderRadius = '8px 8px 0 0';
+            iframe.allow = 'geolocation';
+            iframe.src = `https://www.komoot.com/nl-nl/tour/${routeId}/embed`;
             
-            // Extraheer de route data uit de HTML
-            const match = html.match(/window\.__INITIAL_STATE__\s*=\s*({.*?});/);
-            if (match) {
-                const data = JSON.parse(match[1]);
-                const coordinates = data.route.coordinates.map(coord => [coord.lat, coord.lng]);
-
-                // Teken de route op de kaart
-                const polyline = L.polyline(coordinates, {
-                    color: '#007984',
-                    weight: 4,
-                    opacity: 0.8
-                }).addTo(map);
-
-                // Pas de zoom aan om de hele route te tonen
-                map.fitBounds(polyline.getBounds());
-            }
-        } catch (error) {
-            console.error('Fout bij laden route:', error);
+            // Voeg het iframe toe aan het map element
+            mapElement.innerHTML = '';
+            mapElement.appendChild(iframe);
         }
     }
 
@@ -52,16 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Zondagse routes
         'map-veluwezoom': '2097641502',
         'map-kootwijk': '2055333587',
-        'map-stuwwallen': '2110982347',
+        'map-stuwwallen': '1150071633',
         'map-venray': '2110982347'
     };
 
-    // Initialiseer alle kaarten en laad routes
+    // Laad alle kaarten
     for (const [mapId, routeId] of Object.entries(routes)) {
-        const mapElement = document.getElementById(mapId);
-        if (mapElement) {
-            const map = initMap(mapId);
-            loadRoute(map, routeId);
-        }
+        loadKomootMap(mapId, routeId);
     }
 }); 

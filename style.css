@@ -355,10 +355,15 @@ footer {
 .route-map {
     width: 100%;
     height: 300px;
-    background-color: #f7fafc;
     border-radius: 8px 8px 0 0;
     overflow: hidden;
-    margin-bottom: 1rem;
+    position: relative;
+}
+
+.route-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 .route-card {
