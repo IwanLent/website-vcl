@@ -1114,4 +1114,45 @@ footer {
     .logo-bottom {
         font-size: 1.4rem;
     }
+}
+
+/* NTFU Banner */
+.ntfu-banner {
+    background-color: #007984;
+    color: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.ntfu-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ntfu-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.ntfu-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .ntfu-banner {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+
+    .ntfu-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .ntfu-content p {
+        font-size: 1rem;
+    }
 } 
