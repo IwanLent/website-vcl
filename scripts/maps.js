@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadRoute(map, routeId) {
         try {
             // Haal de route data op van de publieke Komoot pagina
-            const response = await fetch(`https://www.komoot.com/nl-nl/route/${routeId}/embed`);
+            const response = await fetch(`https://www.komoot.com/nl-nl/tour/${routeId}/embed`);
             const html = await response.text();
             
             // Extraheer de route data uit de HTML
@@ -42,18 +42,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Alle routes met hun Komoot IDs
     const routes = {
         // Donderdagse routes
-        'map-waalrijn': '3355919',
-        'map-italiaanseweg': '3355920',
-        'map-kleverberg': '3355921',
-        'map-posbank': '3355922',
-        'map-betuwe': '3355923',
-        'map-maaswaal': '3355924',
+        'map-waalrijn': '1495743184',
+        'map-italiaanseweg': '1507847976',
+        'map-kleverberg': '2097349482',
+        'map-posbank': '2098591535',
+        'map-betuwe': '2097947933',
+        'map-maaswaal': '2065939802',
         
         // Zondagse routes
-        'map-veluwezoom': '3355381',
-        'map-kootwijk': '3355383',
-        'map-stuwwallen': '3355384',
-        'map-venray': '3355385'
+        'map-veluwezoom': '2097641502',
+        'map-kootwijk': '2055333587',
+        'map-stuwwallen': '2110982347',
+        'map-venray': '2110982347'
     };
 
     // Initialiseer alle kaarten en laad routes
