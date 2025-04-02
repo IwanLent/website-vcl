@@ -39,10 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Alle routes met hun GPX bestanden
     const routes = {
         'map-waalrijn': 'routes/VCLWaalRijnPad45.gpx',
-        'map-dijken': 'routes/VCLDijken65.gpx',
-        'map-kleverberg': 'routes/VCLKleverberg50.gpx',
         'map-italiaanseweg': 'routes/VCLItaliaanseweg55.gpx',
-        'map-posbank': 'routes/VCLPosbank65.gpx'
+        'map-kleverberg': 'routes/VCLKleverberg50.gpx',
+        'map-posbank': 'routes/VCLPosbank65.gpx',
+        'map-betuwe': 'routes/VCLBetuwe60.gpx',
+        'map-maaswaal': 'routes/VCLMaasWaal55.gpx',
+        'map-veluwezoom': 'routes/VCLVeluwezoom105.gpx',
+        'map-kootwijk': 'routes/VCLKootwijk103.gpx',
+        'map-stuwwallen': 'routes/VCLStuwwallen139.gpx',
+        'map-venray': 'routes/VCLVenray121.gpx'
     };
 
     // Initialiseer alle kaarten en laad GPX bestanden
