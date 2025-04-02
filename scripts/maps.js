@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Functie om GPX bestand te laden en te tekenen op de kaart
-    async function loadGPX(map, gpxFile) {
+    async function loadGPX(map, routeId) {
         try {
-            const response = await fetch(gpxFile);
+            const response = await fetch(`https://www.komoot.com/api/v1/routes/${routeId}/gpx`);
             const gpxText = await response.text();
             const parser = new DOMParser();
             const gpxDoc = parser.parseFromString(gpxText, 'text/xml');
@@ -36,26 +36,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Alle routes met hun GPX bestanden
+    // Alle routes met hun Komoot IDs
     const routes = {
-        'map-waalrijn': 'routes/VCLWaalRijnPad45.gpx',
-        'map-italiaanseweg': 'routes/VCLItaliaanseweg55.gpx',
-        'map-kleverberg': 'routes/VCLKleverberg50.gpx',
-        'map-posbank': 'routes/VCLPosbank65.gpx',
-        'map-betuwe': 'routes/VCLBetuwe60.gpx',
-        'map-maaswaal': 'routes/VCLMaasWaal55.gpx',
-        'map-veluwezoom': 'routes/VCLVeluwezoom105.gpx',
-        'map-kootwijk': 'routes/VCLKootwijk103.gpx',
-        'map-stuwwallen': 'routes/VCLStuwwallen139.gpx',
-        'map-venray': 'routes/VCLVenray121.gpx'
+        // Donderdagse routes
+        'map-waalrijn': '3355919',
+        'map-italiaanseweg': '3355920',
+        'map-kleverberg': '3355921',
+        'map-posbank': '3355922',
+        'map-betuwe': '3355923',
+        'map-maaswaal': '3355924',
+        
+        // Zondagse routes
+        'map-veluwezoom': '3355381',
+        'map-kootwijk': '3355383',
+        'map-stuwwallen': '3355384',
+        'map-venray': '3355385'
     };
 
     // Initialiseer alle kaarten en laad GPX bestanden
-    for (const [mapId, gpxFile] of Object.entries(routes)) {
+    for (const [mapId, routeId] of Object.entries(routes)) {
         const mapElement = document.getElementById(mapId);
         if (mapElement) {
             const map = initMap(mapId);
-            loadGPX(map, gpxFile);
+            loadGPX(map, routeId);
         }
     }
 }); 
