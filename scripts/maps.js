@@ -17,28 +17,22 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch(gpxUrl);
             const gpxData = await response.text();
-            const parser = new DOMParser();
-            const gpxDoc = parser.parseFromString(gpxData, 'text/xml');
-            
-            // Haal de coördinaten op uit het GPX bestand
-            const trackPoints = gpxDoc.getElementsByTagName('trkpt');
-            const coordinates = [];
-            
-            for (let point of trackPoints) {
-                const lat = parseFloat(point.getAttribute('lat'));
-                const lon = parseFloat(point.getAttribute('lon'));
-                coordinates.push([lat, lon]);
-            }
+            const gpx = new gpxParser();
+            gpx.parse(gpxData);
             
             // Teken de route op de kaart
-            L.polyline(coordinates, {
-                color: '#007984',
-                weight: 3,
-                opacity: 0.8
-            }).addTo(map);
-            
-            // Pas de kaart aan om de hele route te tonen
-            map.fitBounds(L.latLngBounds(coordinates));
+            const route = gpx.tracks[0];
+            if (route) {
+                const coordinates = route.points.map(point => [point.lat, point.lon]);
+                L.polyline(coordinates, {
+                    color: '#007984',
+                    weight: 3,
+                    opacity: 0.8
+                }).addTo(map);
+                
+                // Pas de kaart aan om de hele route te tonen
+                map.fitBounds(L.latLngBounds(coordinates));
+            }
         } catch (error) {
             console.error('Fout bij het laden van de GPX route:', error);
         }
