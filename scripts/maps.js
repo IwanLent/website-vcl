@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'map-italiaanseweg': {
             center: [51.8667, 5.8667], // Lent
-            gpx: 'routes/Italiaanse weg.gpx'
+            gpx: 'routes/Italiaanse_weg.gpx'
         },
         'map-kleverberg': {
             center: [51.8667, 5.8667], // Lent
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Zondagse routes
         'map-veluwezoom': {
             center: [52.0333, 6.0167], // Veluwezoom
-            gpx: 'routes/Veluwezoom - Hoenderloo.gpx'
+            gpx: 'routes/Veluwezoom_Hoenderloo.gpx'
         },
         'map-kootwijk': {
             center: [52.1333, 5.7833], // Kootwijk
@@ -79,11 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'map-stuwwallen': {
             center: [51.8667, 5.8667], // Lent
-            gpx: 'routes/De 3 STUWWALLEN.gpx'
+            gpx: 'routes/De_3_STUWWALLEN.gpx'
         },
         'map-venray': {
             center: [51.5333, 5.9833], // Venray
-            gpx: 'routes/Rondje zuid via Venray.gpx'
+            gpx: 'routes/Rondje_zuid_via_Venray.gpx'
         }
     };
 
