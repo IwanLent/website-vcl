@@ -14,22 +14,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Functie om route te laden en te tekenen op de kaart
     async function loadRoute(map, routeId) {
         try {
-            // Haal eerst de route details op
-            const response = await fetch(`https://www.komoot.com/api/v1/routes/${routeId}`);
-            const routeData = await response.json();
+            // Haal de route data op van de publieke Komoot pagina
+            const response = await fetch(`https://www.komoot.com/nl-nl/route/${routeId}/embed`);
+            const html = await response.text();
             
-            // Haal de coördinaten op uit de route data
-            const coordinates = routeData.coordinates.map(coord => [coord.lat, coord.lng]);
+            // Extraheer de route data uit de HTML
+            const match = html.match(/window\.__INITIAL_STATE__\s*=\s*({.*?});/);
+            if (match) {
+                const data = JSON.parse(match[1]);
+                const coordinates = data.route.coordinates.map(coord => [coord.lat, coord.lng]);
 
-            // Teken de route op de kaart
-            const polyline = L.polyline(coordinates, {
-                color: '#007984',
-                weight: 4,
-                opacity: 0.8
-            }).addTo(map);
+                // Teken de route op de kaart
+                const polyline = L.polyline(coordinates, {
+                    color: '#007984',
+                    weight: 4,
+                    opacity: 0.8
+                }).addTo(map);
 
-            // Pas de zoom aan om de hele route te tonen
-            map.fitBounds(polyline.getBounds());
+                // Pas de zoom aan om de hele route te tonen
+                map.fitBounds(polyline.getBounds());
+            }
         } catch (error) {
             console.error('Fout bij laden route:', error);
         }
