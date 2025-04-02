@@ -16,23 +16,49 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadGPX(map, gpxUrl) {
         try {
             const response = await fetch(gpxUrl);
-            const gpxData = await response.text();
-            const gpx = new gpxParser();
-            gpx.parse(gpxData);
+            const gpxText = await response.text();
+            const parser = new DOMParser();
+            const gpxDoc = parser.parseFromString(gpxText, 'text/xml');
+            
+            // Converteer GPX naar GeoJSON
+            const geoJson = toGeoJSON.gpx(gpxDoc);
             
             // Teken de route op de kaart
-            const route = gpx.tracks[0];
-            if (route) {
-                const coordinates = route.points.map(point => [point.lat, point.lon]);
-                L.polyline(coordinates, {
-                    color: '#007984',
-                    weight: 3,
-                    opacity: 0.8
+            if (geoJson.features.length > 0) {
+                // Teken de route lijn
+                const routeLine = L.geoJSON(geoJson, {
+                    style: {
+                        color: '#007984',
+                        weight: 3,
+                        opacity: 0.8
+                    }
                 }).addTo(map);
+
+                // Haal waypoints op
+                const waypoints = geoJson.features.filter(f => f.geometry.type === 'Point');
                 
+                // Teken waypoints als markers
+                waypoints.forEach(waypoint => {
+                    const coords = waypoint.geometry.coordinates;
+                    const marker = L.marker([coords[1], coords[0]], {
+                        icon: L.divIcon({
+                            className: 'route-waypoint',
+                            html: '<div class="waypoint-marker"></div>',
+                            iconSize: [12, 12]
+                        })
+                    });
+                    
+                    if (waypoint.properties.name) {
+                        marker.bindPopup(waypoint.properties.name);
+                    }
+                    
+                    marker.addTo(map);
+                });
+
                 // Pas de kaart aan om de hele route te tonen
-                if (coordinates.length > 0) {
-                    map.fitBounds(L.latLngBounds(coordinates));
+                const bounds = routeLine.getBounds();
+                if (bounds.isValid()) {
+                    map.fitBounds(bounds);
                 }
             }
         } catch (error) {
@@ -86,6 +112,20 @@ document.addEventListener('DOMContentLoaded', () => {
             gpx: 'routes/Rondje_zuid_via_Venray.gpx'
         }
     };
+
+    // Voeg CSS toe voor de waypoint markers
+    const style = document.createElement('style');
+    style.textContent = `
+        .waypoint-marker {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #007984;
+            border: 2px solid white;
+            box-shadow: 0 0 4px rgba(0,0,0,0.4);
+        }
+    `;
+    document.head.appendChild(style);
 
     // Initialiseer alle kaarten
     for (const [mapId, routeInfo] of Object.entries(routes)) {

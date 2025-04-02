@@ -1251,4 +1251,32 @@ footer {
         margin-top: 3rem;
         padding-top: 3rem;
     }
+}
+
+.route-content .btn {
+    display: inline-block;
+    background-color: #007984;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid #007984;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.route-content .btn:hover {
+    background-color: white;
+    color: #007984;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.route-content .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 } 
