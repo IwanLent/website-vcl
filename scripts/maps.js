@@ -11,28 +11,27 @@ document.addEventListener('DOMContentLoaded', () => {
         return map;
     }
 
-    // Functie om GPX bestand te laden en te tekenen op de kaart
-    async function loadGPX(map, routeId) {
+    // Functie om route te laden en te tekenen op de kaart
+    async function loadRoute(map, routeId) {
         try {
-            const response = await fetch(`https://www.komoot.com/api/v1/routes/${routeId}/gpx`);
-            const gpxText = await response.text();
-            const parser = new DOMParser();
-            const gpxDoc = parser.parseFromString(gpxText, 'text/xml');
+            // Haal eerst de route details op
+            const response = await fetch(`https://www.komoot.com/api/v1/routes/${routeId}`);
+            const routeData = await response.json();
             
-            const trackPoints = Array.from(gpxDoc.getElementsByTagName('trkpt')).map(trkpt => [
-                parseFloat(trkpt.getAttribute('lat')),
-                parseFloat(trkpt.getAttribute('lon'))
-            ]);
+            // Haal de coördinaten op uit de route data
+            const coordinates = routeData.coordinates.map(coord => [coord.lat, coord.lng]);
 
-            const polyline = L.polyline(trackPoints, {
+            // Teken de route op de kaart
+            const polyline = L.polyline(coordinates, {
                 color: '#007984',
                 weight: 4,
                 opacity: 0.8
             }).addTo(map);
 
+            // Pas de zoom aan om de hele route te tonen
             map.fitBounds(polyline.getBounds());
         } catch (error) {
-            console.error('Fout bij laden GPX:', error);
+            console.error('Fout bij laden route:', error);
         }
     }
 
@@ -53,12 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
         'map-venray': '3355385'
     };
 
-    // Initialiseer alle kaarten en laad GPX bestanden
+    // Initialiseer alle kaarten en laad routes
     for (const [mapId, routeId] of Object.entries(routes)) {
         const mapElement = document.getElementById(mapId);
         if (mapElement) {
             const map = initMap(mapId);
-            loadGPX(map, routeId);
+            loadRoute(map, routeId);
         }
     }
 }); 
