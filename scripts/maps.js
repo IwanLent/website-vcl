@@ -31,7 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }).addTo(map);
                 
                 // Pas de kaart aan om de hele route te tonen
-                map.fitBounds(L.latLngBounds(coordinates));
+                if (coordinates.length > 0) {
+                    map.fitBounds(L.latLngBounds(coordinates));
+                }
             }
         } catch (error) {
             console.error('Fout bij het laden van de GPX route:', error);
@@ -43,45 +45,45 @@ document.addEventListener('DOMContentLoaded', () => {
         // Donderdagse routes
         'map-waalrijn': {
             center: [51.8667, 5.8667], // Lent
-            gpx: 'routes/waalrijn.gpx'
+            gpx: 'routes/2025-03-20_1495743184_#VCL WaalRijnPad.gpx'
         },
         'map-italiaanseweg': {
             center: [51.8667, 5.8667], // Lent
-            gpx: 'routes/italiaanseweg.gpx'
+            gpx: 'routes/2025-03-14_1507847976_#VCL Italiaanse weg.gpx'
         },
         'map-kleverberg': {
             center: [51.8667, 5.8667], // Lent
-            gpx: 'routes/kleverberg.gpx'
+            gpx: 'routes/2025-03-14_2097349482_#VCL Kleverberg.gpx'
         },
         'map-posbank': {
             center: [52.0333, 6.0167], // Posbank
-            gpx: 'routes/posbank.gpx'
+            gpx: 'routes/2025-03-14_2098591535_#VCL Posbank.gpx'
         },
         'map-betuwe': {
             center: [51.8667, 5.8667], // Lent
-            gpx: 'routes/betuwe.gpx'
+            gpx: 'routes/2025-03-15_2098599755_#VCL Betuwe.gpx'
         },
         'map-maaswaal': {
             center: [51.8667, 5.8667], // Lent
-            gpx: 'routes/maaswaal.gpx'
+            gpx: 'routes/2025-02-22_2065939802_VCL Classic - MaasWaal.gpx'
         },
         
         // Zondagse routes
         'map-veluwezoom': {
             center: [52.0333, 6.0167], // Veluwezoom
-            gpx: 'routes/veluwezoom.gpx'
+            gpx: 'routes/2025-03-14_2097641502_VCL Veluwezoom - Hoenderloo.gpx'
         },
         'map-kootwijk': {
             center: [52.1333, 5.7833], // Kootwijk
-            gpx: 'routes/kootwijk.gpx'
+            gpx: 'routes/2025-02-15_2055333587_VCL Classic - Kootwijk.gpx'
         },
         'map-stuwwallen': {
             center: [51.8667, 5.8667], // Lent
-            gpx: 'routes/stuwwallen.gpx'
+            gpx: 'routes/2023-06-03_1150071633_VCL De 3 STUWWALLEN.gpx'
         },
         'map-venray': {
             center: [51.5333, 5.9833], // Venray
-            gpx: 'routes/venray.gpx'
+            gpx: 'routes/2025-03-22_2110982347_VCL Rondje zuid via Venray.gpx'
         }
     };
 
