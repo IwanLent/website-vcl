@@ -226,6 +226,8 @@ footer {
 }
 
 .footer-section h3 {
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 1rem;
 }
 
