@@ -61,23 +61,23 @@ header {
 .logo-text {
     display: flex;
     flex-direction: column;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    line-height: 1;
+    align-items: center;
+    margin-left: 10px;
+    color: #007984;
 }
 
 .logo-top {
-    color: var(--accent-color);
-    font-size: 1.5rem;
-    font-weight: 300;
+    font-size: 14px;
     text-transform: lowercase;
+    font-weight: normal;
+    letter-spacing: 1px;
 }
 
 .logo-bottom {
-    color: #ffffff;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-size: 24px;
+    font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .nav-links {
