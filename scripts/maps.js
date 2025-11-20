@@ -110,7 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
         'map-venray': {
             center: [51.5333, 5.9833], // Venray
             gpx: 'routes/Rondje_zuid_via_Venray.gpx'
+        },
+        'map-maaswaal2': {
+            center:[51.8667, 5.8667], // Lent
+            gpx: 'routes/VCL_Classic-MaasWaal.gpx'
         }
+
     };
 
     // Voeg CSS toe voor de waypoint markers
