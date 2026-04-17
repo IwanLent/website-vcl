@@ -2,158 +2,154 @@
 
 Een toegankelijke en mobielvriendelijke website voor Fietsclub VCL, gebouwd met HTML, CSS en JavaScript.
 
+De site is statisch en heeft geen build-stap nodig. De pagina's kunnen direct via GitHub Pages worden gepubliceerd.
+
 ## Structuur
 
-```
+```text
 /
-├── index.html          # Homepage
-├── routes.html         # Routes pagina
-├── veiligheid.html     # Veiligheid & Regels pagina
-├── fotos.html          # Foto's pagina
-├── contact.html        # Contact pagina
-├── over-ons.html       # Over ons pagina
-├── style.css          # Hoofdstylesheet
-├── images/            # Afbeeldingen
-│   ├── logo.png       # Club logo
-│   ├── header.jpg     # Header afbeelding
-│   └── foto1.jpg      # Club foto's
-├── routes/            # GPX bestanden
-│   ├── bosroute.gpx
-│   └── waterroute.gpx
-└── scripts/           # JavaScript bestanden
-    ├── main.js        # Hoofdscript
-    └── lightbox.js    # Lightbox functionaliteit
+|-- index.html             # Homepage
+|-- about.html             # Over ons
+|-- routes.html            # Donderdagse routes
+|-- routes-sunday.html     # Zondagse routes
+|-- safety.html            # Veiligheid & regels
+|-- photos.html            # Foto's
+|-- contact.html           # Contact
+|-- style.css              # Hoofdstylesheet
+|-- images/                # Afbeeldingen
+|-- routes/                # GPX-bestanden voor de kaartjes
+|-- scripts/
+|   |-- main.js            # Mobiel menu
+|   |-- maps.js            # Leaflet-kaarten en GPX-weergave
+|   |-- lightbox.js        # Niet actief gekoppeld op de huidige fotopagina
+|   `-- download_routes.js # Hulpscript, niet nodig voor de website zelf
 ```
+
+## Contactgegevens
+
+Het contactadres op de website is:
+
+```text
+VeloClubLent@gmail.com
+```
+
+Telefoonnummer en socialmedia-links worden niet op de site getoond. Externe links naar NTFU en Komoot blijven wel aanwezig.
 
 ## Content aanpassen
 
 ### Tekst aanpassen
-1. Open het gewenste HTML-bestand
-2. Zoek de tekst die je wilt aanpassen
-3. Vervang de tekst tussen de `<p>` tags
-4. Sla het bestand op
 
-### Routes toevoegen
-1. Open `routes.html`
-2. Kopieer het voorbeeld route-blok:
+1. Open het gewenste HTML-bestand.
+2. Zoek de tekst die je wilt aanpassen.
+3. Pas de tekst aan.
+4. Sla het bestand op.
+
+### Routes aanpassen of toevoegen
+
+De routepagina's gebruiken lokale GPX-bestanden voor de kaartweergave en directe links naar Komoot voor de volledige route.
+
+Voor donderdagse routes:
+
+1. Open `routes.html`.
+2. Voeg of wijzig een routeblok met een kaartcontainer, route-informatie en Komoot-link.
+3. Zet het bijbehorende GPX-bestand in de map `routes/`.
+4. Koppel het kaart-id en GPX-bestand in `scripts/maps.js`.
+
+Voor zondagse routes geldt hetzelfde, maar dan in `routes-sunday.html`.
+
+Voorbeeld:
+
 ```html
-<article class="route-card">
-    <div class="route-map">
-        <iframe 
-            src="https://www.komoot.com/tour/1234567/embed"
-            width="100%" 
-            height="300" 
-            frameborder="0"
-            title="Route kaart"
-            allowfullscreen>
-        </iframe>
-    </div>
+<div class="route-card">
+    <div class="route-map" id="map-voorbeeld"></div>
     <div class="route-content">
         <h2>Route naam</h2>
-        <p class="route-meta">
-            <span>Lengte: XX km</span>
-            <span>Moeilijkheid: Niveau</span>
-        </p>
-        <p>Route beschrijving</p>
-        <div class="route-actions">
-            <a href="routes/route.gpx" class="button" download>
-                Download GPX
-            </a>
+        <div class="route-meta">
+            <span>Afstand: 60 km</span>
+            <span>Hoogtemeters: 100 hm</span>
         </div>
+        <p>Korte routebeschrijving.</p>
+        <a href="https://www.komoot.com/nl-nl/tour/ROUTE-ID" class="btn">Bekijk op Komoot</a>
     </div>
-</article>
+</div>
 ```
-3. Pas de inhoud aan
-4. Voeg het GPX-bestand toe aan de `routes/` map
-5. Update de iframe src met de juiste Komoot/Strava embed URL
 
-### Foto's toevoegen
-1. Voeg de nieuwe foto toe aan de `images/` map
-2. Open `fotos.html`
-3. Kopieer het voorbeeld foto-blok:
+Daarna voeg je in `scripts/maps.js` een item toe:
+
+```js
+'map-voorbeeld': {
+    center: [51.8667, 5.8667],
+    gpx: 'routes/voorbeeld.gpx'
+}
+```
+
+### Foto's aanpassen
+
+1. Voeg de nieuwe foto toe aan de map `images/`.
+2. Open `photos.html`.
+3. Voeg een nieuw foto-item toe of wijzig een bestaand item.
+
+Voorbeeld:
+
 ```html
 <div class="photo-item">
     <img src="images/foto.jpg" alt="Beschrijving van de foto" loading="lazy">
-    <div class="photo-overlay">
-        <button class="photo-button" aria-label="Vergroot foto">
-            <span class="icon">+</span>
-        </button>
-    </div>
 </div>
 ```
-4. Pas de src en alt-tekst aan
-
-### YouTube video's toevoegen
-1. Open `veiligheid.html`
-2. Kopieer het voorbeeld video-blok:
-```html
-<div class="video-container">
-    <h3>Video titel</h3>
-    <iframe 
-        src="https://www.youtube.com/embed/VIDEO-ID"
-        title="Video beschrijving"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-    </iframe>
-</div>
-```
-3. Vervang VIDEO-ID met het ID van je YouTube video
-4. Pas de titel en beschrijving aan
 
 ## Styling aanpassen
 
 ### Kleuren wijzigen
-1. Open `style.css`
-2. Zoek de `:root` sectie bovenaan
-3. Pas de kleurwaarden aan:
+
+Open `style.css` en pas de waarden in de `:root` sectie aan:
+
 ```css
 :root {
-    --primary-color: #2c5282;
-    --secondary-color: #4299e1;
-    --text-color: #2d3748;
+    --primary-color: #000000;
+    --secondary-color: #007984;
+    --text-color: #333333;
     --background-color: #ffffff;
-    --accent-color: #f6ad55;
+    --accent-color: #007984;
+    --max-width: 1200px;
 }
 ```
 
 ### Layout aanpassen
-1. Open `style.css`
-2. Zoek de relevante CSS-regels
-3. Pas de waardes aan
-4. Test de wijzigingen op verschillende schermformaten
+
+1. Open `style.css`.
+2. Zoek de relevante CSS-regels.
+3. Pas de waarden aan.
+4. Test de wijziging op desktop en mobiel.
+
+## Lokaal bekijken
+
+De gewone pagina's kunnen direct in de browser worden geopend. Voor de routekaartjes is een lokale webserver betrouwbaarder, omdat de GPX-bestanden via `fetch()` worden geladen.
+
+Een eenvoudige optie:
+
+```bash
+python -m http.server 8000
+```
+
+Open daarna:
+
+```text
+http://localhost:8000/
+```
 
 ## Publiceren
 
-De website is gebouwd voor GitHub Pages en kan direct worden gepubliceerd:
+De website is geschikt voor GitHub Pages:
 
-1. Push alle wijzigingen naar de GitHub repository
-2. Ga naar repository instellingen
-3. Scroll naar "GitHub Pages" sectie
-4. Selecteer de branch die je wilt publiceren
-5. De website is beschikbaar op `https://[gebruikersnaam].github.io/[repository-naam]`
-
-## Toegankelijkheid
-
-De website is gebouwd met toegankelijkheid in gedachten:
-- Semantische HTML structuur
-- ARIA labels waar nodig
-- Toetsenbord navigatie
-- Voldoende contrast
-- Responsive design
-
-## Browser ondersteuning
-
-De website werkt in alle moderne browsers:
-- Chrome (laatste 2 versies)
-- Firefox (laatste 2 versies)
-- Safari (laatste 2 versies)
-- Edge (laatste 2 versies)
+1. Push de wijzigingen naar de GitHub repository.
+2. Ga naar de repository-instellingen.
+3. Open de GitHub Pages-instellingen.
+4. Selecteer de branch die gepubliceerd moet worden.
 
 ## Technische vereisten
 
 - Geen build-stappen nodig
-- Geen frameworks gebruikt
+- Geen frameworks
 - Pure HTML, CSS en JavaScript
 - Geen server-side code
-- Geen database nodig 
+- Geen database

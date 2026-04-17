@@ -211,6 +211,73 @@ header {
     margin-bottom: 1rem;
 }
 
+/* Sponsoren */
+.sponsors {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.sponsors h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.sponsor-card {
+    min-height: 150px;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sponsor-card:hover,
+.sponsor-card:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.sponsor-card img {
+    display: block;
+    max-width: 100%;
+    max-height: 126px;
+    object-fit: contain;
+}
+
+.sponsors-grid .sponsor-card:nth-child(1) img {
+    transform: scale(1.2);
+}
+
+.sponsors-grid .sponsor-card:nth-child(2) img {
+    transform: scale(1.22);
+}
+
+.sponsors-grid .sponsor-card:nth-child(3) img {
+    transform: scale(1.08);
+}
+
+.sponsors-grid .sponsor-card:nth-child(4) img {
+    transform: scale(1.35);
+}
+
+.sponsor-card-dark {
+    background: #050505;
+    border-color: #202020;
+}
+
 /* Footer */
 footer {
     background-color: var(--primary-color);
@@ -230,6 +297,49 @@ footer {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1rem;
+}
+
+.footer-section a {
+    color: #ffffff;
+}
+
+.footer-sponsors {
+    max-width: var(--max-width);
+    margin: 2rem auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-sponsors a {
+    width: 104px;
+    height: 48px;
+    padding: 0.45rem;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-sponsors a:hover,
+.footer-sponsors a:focus {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.footer-sponsors img {
+    display: block;
+    max-width: 100%;
+    max-height: 32px;
+    object-fit: contain;
+}
+
+.footer-sponsors .footer-sponsor-dark {
+    background: #050505;
 }
 
 .social-links {
@@ -302,6 +412,46 @@ footer {
 
     .highlights-grid {
         grid-template-columns: 1fr;
+    }
+
+    .sponsors {
+        padding: 3rem 1rem;
+    }
+
+    .sponsors-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    .sponsor-card {
+        min-height: 104px;
+        padding: 0.35rem 0.5rem;
+    }
+
+    .sponsor-card img {
+        max-height: 82px;
+    }
+
+    .sponsors-grid .sponsor-card:nth-child(1) img,
+    .sponsors-grid .sponsor-card:nth-child(2) img {
+        transform: scale(1.12);
+    }
+
+    .sponsors-grid .sponsor-card:nth-child(3) img {
+        transform: scale(1.02);
+    }
+
+    .sponsors-grid .sponsor-card:nth-child(4) img {
+        transform: scale(1.2);
+    }
+
+    .footer-sponsors a {
+        width: 92px;
+        height: 42px;
+    }
+
+    .footer-sponsors img {
+        max-height: 28px;
     }
 }
 
