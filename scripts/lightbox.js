@@ -5,19 +5,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeButton = document.querySelector('.lightbox-close');
     const prevButton = document.querySelector('.lightbox-prev');
     const nextButton = document.querySelector('.lightbox-next');
-    
+
+    if (!lightbox || !lightboxImage || !closeButton || !prevButton || !nextButton || photoButtons.length === 0) {
+        return;
+    }
+
     let currentPhotoIndex = 0;
     const photos = Array.from(document.querySelectorAll('.photo-item img'));
+
+    if (photos.length === 0) {
+        return;
+    }
 
     // Open lightbox
     photoButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
             currentPhotoIndex = index;
-            updateLightbox();
-            lightbox.hidden = false;
-            document.body.style.overflow = 'hidden';
+            openLightbox();
         });
     });
+
+    function openLightbox() {
+        updateLightbox();
+        lightbox.hidden = false;
+        document.body.style.overflow = 'hidden';
+        closeButton.focus();
+    }
 
     // Close lightbox
     function closeLightbox() {
@@ -35,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Navigate photos
     function updateLightbox() {
         const currentPhoto = photos[currentPhotoIndex];
-        lightboxImage.src = currentPhoto.src;
+        lightboxImage.src = currentPhoto.currentSrc || currentPhoto.src;
         lightboxImage.alt = currentPhoto.alt;
     }
 

@@ -44,53 +44,72 @@
             <!-- Foto 1 -->
             <div class="photo-item">
                 <img src="images/foto1.jpg" alt="Fietsers bij de dijk" loading="lazy">
+                <button class="photo-button" type="button" aria-label="Vergroot foto: Fietsers bij de dijk"></button>
             </div>
 
             <!-- Foto 2 -->
             <div class="photo-item">
                 <img src="images/foto2.jpg" alt="Fietsers in de bergen" loading="lazy">
+                <button class="photo-button" type="button" aria-label="Vergroot foto: Fietsers in de bergen"></button>
             </div>
 
             <!-- Foto 3 -->
             <div class="photo-item">
                 <img src="images/foto3.jpg" alt="Groepsfoto fietsers" loading="lazy">
+                <button class="photo-button" type="button" aria-label="Vergroot foto: Groepsfoto fietsers"></button>
             </div>
 
             <!-- Foto 4 -->
             <div class="photo-item">
                 <img src="images/foto4.jpg" alt="Fiets bij rustpunt" loading="lazy">
+                <button class="photo-button" type="button" aria-label="Vergroot foto: Fiets bij rustpunt"></button>
             </div>
 
             <!-- Foto 5 -->
             <div class="photo-item">
                 <img src="images/foto5.jpg" alt="Fietsers bij finish" loading="lazy">
+                <button class="photo-button" type="button" aria-label="Vergroot foto: Fietsers bij finish"></button>
             </div>
 
             <!-- Foto 6 -->
             <div class="photo-item">
                 <img src="images/foto6.jpg" alt="Groepsfoto bij monument" loading="lazy">
+                <button class="photo-button" type="button" aria-label="Vergroot foto: Groepsfoto bij monument"></button>
             </div>
 
             <!-- Foto 7 -->
             <div class="photo-item">
                 <img src="images/foto7.jpg" alt="Fietsers onderweg" loading="lazy">
+                <button class="photo-button" type="button" aria-label="Vergroot foto: Fietsers onderweg"></button>
             </div>
 
             <!-- Foto 8 -->
             <div class="photo-item">
                 <img src="images/foto8.jpg" alt="Groepsfoto tijdens pauze" loading="lazy">
+                <button class="photo-button" type="button" aria-label="Vergroot foto: Groepsfoto tijdens pauze"></button>
             </div>
 
             <!-- Foto 9 -->
             <div class="photo-item">
                 <img src="images/foto9.jpg" alt="Fietsers in actie" loading="lazy">
+                <button class="photo-button" type="button" aria-label="Vergroot foto: Fietsers in actie"></button>
             </div>
 
             <!-- Foto 10 -->
             <div class="photo-item">
                 <img src="images/foto10.jpg" alt="Fietsers op mooie locatie" loading="lazy">
+                <button class="photo-button" type="button" aria-label="Vergroot foto: Fietsers op mooie locatie"></button>
             </div>
         </section>
+
+        <div class="lightbox" role="dialog" aria-modal="true" aria-label="Foto bekijken" hidden>
+            <button class="lightbox-close" type="button" aria-label="Sluit foto">&times;</button>
+            <button class="lightbox-prev" type="button" aria-label="Vorige foto">&#8249;</button>
+            <div class="lightbox-content">
+                <img class="lightbox-image" src="" alt="">
+            </div>
+            <button class="lightbox-next" type="button" aria-label="Volgende foto">&#8250;</button>
+        </div>
     </main>
 
     <footer>
@@ -116,9 +135,11 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 VCL Lent. Alle rechten voorbehouden.</p>
+            <span class="site-version">v0.3</span>
         </div>
     </footer>
 
     <script src="scripts/main.js"></script>
+    <script src="scripts/lightbox.js"></script>
 </body>
 </html> 
