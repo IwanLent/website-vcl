@@ -244,6 +244,23 @@ header {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.sponsor-call {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.sponsor-call a {
+    color: var(--accent-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.sponsor-call a:hover,
+.sponsor-call a:focus {
+    text-decoration: underline;
+}
 .sponsor-card:hover,
 .sponsor-card:focus {
     transform: translateY(-2px);
