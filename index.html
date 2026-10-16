@@ -4,14 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vélo Club Lent - Samen op pad</title>
+    <meta name="description" content="Vélo Club Lent is een gezellige fietsclub bij Nijmegen. Wielren samen op donderdagavond en zondagochtend in groepen van verschillende niveaus.">
+    <link rel="canonical" href="https://www.veloclublent.nl/">
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsOrganization",
+      "@id": "https://www.veloclublent.nl/#club",
+      "name": "Vélo Club Lent",
+      "alternateName": "VCL",
+      "url": "https://www.veloclublent.nl/",
+      "logo": "https://www.veloclublent.nl/routes/images/logo.jpg",
+      "description": "Vélo Club Lent is een gezellige fietsclub uit Lent, bij Nijmegen, voor wielrenners die graag samen fietsen.",
+      "sport": "Wielrennen",
+      "email": "VeloClubLent@gmail.com",
+      "areaServed": [
+        { "@type": "Place", "name": "Lent" },
+        { "@type": "Place", "name": "Nijmegen" }
+      ]
+    }
+    </script>
 </head>
 <body>
     <header>
         <nav class="main-nav" role="navigation" aria-label="Hoofdnavigatie">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/logo.jpg" alt="Vélo Club Lent Logo" class="logo-image">
+                    <img src="routes/images/logo.jpg" alt="Vélo Club Lent Logo" class="logo-image">
                     <div class="logo-text">
                         <span class="logo-top">vélo club</span>
                         <span class="logo-bottom">LENT</span>
@@ -22,8 +42,9 @@
                 <span class="hamburger"></span>
                 <span class="menu-text">Menu</span>
             </button>
-            <ul class="nav-links">
+            <ul class="nav-links" id="menu-items">
                 <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="meefietsen.html">Meefietsen</a></li>
                 <li><a href="about.html">Over ons</a></li>
                 <li><a href="routes.html">Routes donderdag</a></li>
                 <li><a href="routes-sunday.html">Routes zondag</a></li>
@@ -37,7 +58,7 @@
     <main>
         <section class="hero">
             <!-- Vervang src met het juiste pad naar de header afbeelding -->
-            <img src="images/header.jpg" alt="Fietsers op een mooie route" class="hero-image">
+            <img src="routes/images/header.jpg" alt="Fietsers op een mooie route" class="hero-image">
             <div class="hero-content">
                 <h1>Welkom bij VCL</h1>
                 <p>Ontdek de mooiste fietsroutes samen met enthousiaste fietsers</p>
@@ -46,13 +67,15 @@
 
         <section class="intro">
             <h2>Over onze club</h2>
-            <p>VCL is een gezellige club voor en door fietsliefhebbers die graag in groepsverband rijden.</p>
-            <p>In het seizoen fietsen we op de donderdagavond een van onze <a href="routes.html">routes</a> voor verschillende niveaus.</p>
-           <p>Er wordt in twee groepen gereden; piano, piano en gas op de lolly. In de piano, pianogroep wordt gemiddeld</p>
-           <p>tussen de 30 en 32 km/h gereden. De gas op de lolly groep rijdt gemiddeld 34 tot 36 km/u</p>
-            <p>Ook op zondagochtend wordt er vaak een tocht gemaakt.</p>
-           <p>We laten niemand achter. Bij een lekke band of een overhoopte slechte dag wordt er op je gewacht.</p>
-           <p>Onder normale omstandigheden wordt er wel van je verwacht dat je een gat na een bocht dicht kunt fietsten</p>
+            <p>Vélo Club Lent (VCL) is een gezellige fietsclub uit Lent, bij Nijmegen, voor wielrenners die graag samen fietsen.</p>
+            <p>Tijdens het wielerseizoen rijden we op donderdagavond verschillende <a href="routes.html">routes</a> in de omgeving van Nijmegen. We fietsen in twee groepen:</p>
+            <ul>
+                <li><strong>Piano, piano:</strong> gemiddeld 30–32 km/u.</li>
+                <li><strong>Gas op de lolly:</strong> gemiddeld 34–36 km/u.</li>
+            </ul>
+            <p>Ook op zondagochtend trekken we regelmatig samen eropuit.</p>
+            <p>We laten niemand achter. Bij een lekke band of een onverwacht slechte dag wachten we op elkaar. Wel verwachten we dat je het tempo van je groep kunt volgen en na een bocht zelfstandig weer kunt aansluiten.</p>
+            <p class="join-action"><a class="btn" href="meefietsen.html">Een keer meefietsen?</a></p>
         </section>
 
         <section class="highlights">
@@ -76,17 +99,13 @@
         <section class="sponsors" aria-labelledby="sponsors-title">
             <h2 id="sponsors-title">Onze sponsoren</h2>
             <div class="sponsors-grid">
+                <a href="https://cafe-etenendrinken.nl/lent/" class="sponsor-card sponsor-card-main" target="_blank" rel="noopener noreferrer">
+                    <span class="sponsor-label">Hoofdsponsor</span>
+                    <img src="Sponsorlogos/eten-en-drinken.svg" alt="Eten en Drinken Lent">
+                </a>
                 <a href="https://wavenijmegen.nl/" class="sponsor-card" target="_blank" rel="noopener noreferrer">
+                    <span class="sponsor-label">Sponsor</span>
                     <img src="Sponsorlogos/wave-nijmegen.svg" alt="WAVE Nijmegen">
-                </a>
-                <a href="https://www.instagram.com/roadman_custom_cycling/" class="sponsor-card" target="_blank" rel="noopener noreferrer">
-                    <img src="Sponsorlogos/roadman-custom-cycling.svg" alt="Roadman Custom Cycling">
-                </a>
-                <a href="https://cafe-etenendrinken.nl/lent/" class="sponsor-card" target="_blank" rel="noopener noreferrer">
-                    <img src="Sponsorlogos/eten-en-drinken.svg" alt="Cafe Eten en Drinken Lent">
-                </a>
-                <a href="https://www.aandemaasadvocatuur.nl/" class="sponsor-card sponsor-card-dark" target="_blank" rel="noopener noreferrer">
-                    <img src="Sponsorlogos/aan-de-maas-advocatuur.svg" alt="Aan de Maas Advocatuur">
                 </a>
             </div>
         </section>
@@ -100,17 +119,13 @@
             </div>
         </div>
         <div class="footer-sponsors" aria-label="Sponsoren">
+            <a href="https://cafe-etenendrinken.nl/lent/" class="footer-sponsor-main" target="_blank" rel="noopener noreferrer">
+                <span class="sponsor-label">Hoofdsponsor</span>
+                <img src="Sponsorlogos/eten-en-drinken.svg" alt="Eten en Drinken Lent">
+            </a>
             <a href="https://wavenijmegen.nl/" target="_blank" rel="noopener noreferrer">
+                <span class="sponsor-label">Sponsor</span>
                 <img src="Sponsorlogos/wave-nijmegen.svg" alt="WAVE Nijmegen">
-            </a>
-            <a href="https://www.instagram.com/roadman_custom_cycling/" target="_blank" rel="noopener noreferrer">
-                <img src="Sponsorlogos/roadman-custom-cycling.svg" alt="Roadman Custom Cycling">
-            </a>
-            <a href="https://cafe-etenendrinken.nl/lent/" target="_blank" rel="noopener noreferrer">
-                <img src="Sponsorlogos/eten-en-drinken.svg" alt="Cafe Eten en Drinken Lent">
-            </a>
-            <a href="https://www.aandemaasadvocatuur.nl/" class="footer-sponsor-dark" target="_blank" rel="noopener noreferrer">
-                <img src="Sponsorlogos/aan-de-maas-advocatuur.svg" alt="Aan de Maas Advocatuur">
             </a>
         </div>
         <div class="footer-bottom">
@@ -121,7 +136,6 @@
         Wil je ook sponsor worden? Neem dan contact op met 
         <a href="mailto:VeloClubLent@gmail.com">VeloClubLent@gmail.com</a>.
     </p>
-</section>
     </footer>
 
     <script src="scripts/main.js"></script>

@@ -16,7 +16,7 @@ De site is statisch en heeft geen build-stap nodig. De pagina's kunnen direct vi
 |-- photos.html            # Foto's
 |-- contact.html           # Contact
 |-- style.css              # Hoofdstylesheet
-|-- images/                # Afbeeldingen
+|-- routes/images/         # Afbeeldingen
 |-- routes/                # GPX-bestanden voor de kaartjes
 |-- scripts/
 |   |-- main.js            # Mobiel menu
@@ -85,7 +85,7 @@ Daarna voeg je in `scripts/maps.js` een item toe:
 
 ### Foto's aanpassen
 
-1. Voeg de nieuwe foto toe aan de map `images/`.
+1. Voeg de nieuwe foto toe aan de map `routes/images/`.
 2. Open `photos.html`.
 3. Voeg een nieuw foto-item toe of wijzig een bestaand item.
 
@@ -93,7 +93,7 @@ Voorbeeld:
 
 ```html
 <div class="photo-item">
-    <img src="images/foto.jpg" alt="Beschrijving van de foto" loading="lazy">
+    <img src="routes/images/foto.jpg" alt="Beschrijving van de foto" loading="lazy">
 </div>
 ```
 
@@ -153,3 +153,12 @@ De website is geschikt voor GitHub Pages:
 - Pure HTML, CSS en JavaScript
 - Geen server-side code
 - Geen database
+
+
+## Domein en zoekmachines
+
+Het hoofddomein is https://www.veloclublent.nl/. Het bestand CNAME legt dit domein vast voor GitHub Pages. De DNS-instellingen en HTTPS moeten ook bij de domeinprovider en in GitHub Pages correct zijn ingesteld. Controleer na publicatie dat HTTP en het domein zonder www permanent doorverwijzen naar https://www.veloclublent.nl/.
+
+Iedere HTML-pagina bevat een absolute canonieke URL; de homepage verwijst naar de domeinroot. Op de homepage staan JSON-LD-organisatiegegevens voor Vélo Club Lent. robots.txt staat crawlen toe en verwijst naar sitemap.xml, waarin de acht hoofdpagina's staan.
+
+Bij het toevoegen of verwijderen van pagina's moet ook sitemap.xml worden bijgewerkt. Dien na publicatie https://www.veloclublent.nl/sitemap.xml in bij Google Search Console. Controleer daar ook de indexering en de gekozen canonieke URL's.

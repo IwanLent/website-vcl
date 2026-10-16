@@ -226,7 +226,7 @@ header {
 
 .sponsors-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     gap: 1.5rem;
     align-items: stretch;
 }
@@ -272,27 +272,6 @@ header {
     max-width: 100%;
     max-height: 126px;
     object-fit: contain;
-}
-
-.sponsors-grid .sponsor-card:nth-child(1) img {
-    transform: scale(1.2);
-}
-
-.sponsors-grid .sponsor-card:nth-child(2) img {
-    transform: scale(1.22);
-}
-
-.sponsors-grid .sponsor-card:nth-child(3) img {
-    transform: scale(1.08);
-}
-
-.sponsors-grid .sponsor-card:nth-child(4) img {
-    transform: scale(1.35);
-}
-
-.sponsor-card-dark {
-    background: #050505;
-    border-color: #202020;
 }
 
 /* Footer */
@@ -445,7 +424,7 @@ footer {
     }
 
     .sponsors-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
 
@@ -456,19 +435,6 @@ footer {
 
     .sponsor-card img {
         max-height: 82px;
-    }
-
-    .sponsors-grid .sponsor-card:nth-child(1) img,
-    .sponsors-grid .sponsor-card:nth-child(2) img {
-        transform: scale(1.12);
-    }
-
-    .sponsors-grid .sponsor-card:nth-child(3) img {
-        transform: scale(1.02);
-    }
-
-    .sponsors-grid .sponsor-card:nth-child(4) img {
-        transform: scale(1.2);
     }
 
     .footer-sponsors a {
@@ -1500,3 +1466,172 @@ footer {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 } 
+
+/* Meefietsen en sponsorhiërarchie */
+.nav-links {
+    gap: clamp(0.6rem, 1.5vw, 1.4rem);
+}
+
+.nav-links a {
+    color: #ffffff;
+}
+
+.join-header,
+.join-content {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.join-header {
+    text-align: center;
+    padding-bottom: 0;
+}
+
+.join-header h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.join-header p,
+.join-content p {
+    margin-bottom: 1rem;
+}
+
+.join-content section + section {
+    margin-top: 2.5rem;
+}
+
+.join-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.join-content h3 {
+    margin: 1.25rem 0 0.5rem;
+}
+
+.join-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.join-content a {
+    color: var(--accent-color);
+}
+
+.join-action {
+    margin-top: 1.5rem;
+}
+
+.join-action .btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--accent-color);
+    color: #ffffff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.join-action .btn:hover,
+.join-action .btn:focus-visible {
+    background: #005e66;
+}
+
+.sponsor-card {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.sponsor-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.sponsor-card img {
+    width: 180px;
+    height: 100px;
+    max-width: 100%;
+    max-height: none;
+}
+
+.sponsor-card-main img {
+    width: 300px;
+    height: 150px;
+}
+
+.footer-sponsors {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    max-width: 600px;
+    align-items: stretch;
+}
+
+.footer-sponsors a {
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.footer-sponsors img {
+    width: 120px;
+    height: 64px;
+    max-width: 100%;
+    max-height: none;
+}
+
+.footer-sponsors .footer-sponsor-main img {
+    width: 200px;
+    height: 96px;
+}
+
+@media (max-width: 1050px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        max-height: calc(100dvh - 100px);
+        overflow-y: auto;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sponsors-grid,
+    .footer-sponsors {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .join-header,
+    .join-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
