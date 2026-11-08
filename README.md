@@ -139,7 +139,9 @@ http://localhost:8000/
 
 ## Publiceren
 
-De website is geschikt voor GitHub Pages:
+De live website wordt gehost op Vercel en is gekoppeld aan de GitHub-repository. Publiceer wijzigingen via de productiebranch van het Vercel-project `website-vcl`. Een lokale commit is pas online nadat deze is gepusht en Vercel de deployment heeft afgerond.
+
+De statische pagina's zijn daarnaast geschikt voor GitHub Pages:
 
 1. Push de wijzigingen naar de GitHub repository.
 2. Ga naar de repository-instellingen.
@@ -148,15 +150,17 @@ De website is geschikt voor GitHub Pages:
 
 ## Aanmeldformulier
 
-`/aanmelden` opent de map `aanmelden/` en stuurt bezoekers automatisch door naar:
+`/aanmelden` en `/aanmelden/` sturen bezoekers met een tijdelijke HTTP-302-redirect door naar:
 
 ```text
 https://cryptpad.fr/form/#/2/form/view/6IyG0OKafDZb28OvufimeQgPawuQjio+FRWXxuv9qqU/
 ```
 
-De pagina `aanmelden/index.html` gebruikt een meta-refresh na 1 seconde. Google interpreteert een meta-refresh met een vertraging groter dan 0 als tijdelijk; zie [Google Search Central](https://developers.google.com/search/docs/crawling-indexing/301-redirects). Dit werkt ook zonder JavaScript. De pagina bevat tevens een directe link naar het formulier. Behoud bij wijzigingen het letterlijke `#`-teken en de `+` in beide URL's; gebruik geen URL-encoding op de volledige URL.
+`vercel.json` stelt de `Location`-header rechtstreeks in, zodat `#` en `+` letterlijk behouden blijven. `Cache-Control: no-store` voorkomt dat de redirect wordt opgeslagen. De regel matcht alleen deze twee paden en laat de bestaande website ongemoeid. Behoud bij wijzigingen het letterlijke `#`-teken en de `+`; gebruik geen URL-encoding op de volledige URL.
 
-GitHub Pages serveert statische bestanden en biedt in deze repository geen instelbare HTTP-302-redirect. Voor een echte HTTP-302 is een redirect bij een proxy of andere hosting nodig. De doorverwijspagina staat op `noindex` en wordt niet opgenomen in `sitemap.xml`.
+Op Vercel kan dezelfde regel ook als projectroute worden gepubliceerd om de bestaande live deployment direct te herstellen. Houd die regel gelijk aan `vercel.json`. Bij een toekomstige wijziging van de doel-URL moeten zowel de projectroute als `vercel.json` en de twee URL's in `aanmelden/index.html` worden bijgewerkt.
+
+Voor statische hosting zonder HTTP-redirects blijft `aanmelden/index.html` beschikbaar als fallback met een tijdelijke meta-refresh na 1 seconde en een directe link. Dit werkt ook zonder JavaScript. De fallback staat op `noindex` en wordt niet opgenomen in `sitemap.xml`.
 
 ## Technische vereisten
 
@@ -169,7 +173,7 @@ GitHub Pages serveert statische bestanden en biedt in deze repository geen inste
 
 ## Domein en zoekmachines
 
-Het hoofddomein is https://www.veloclublent.nl/. Het bestand CNAME legt dit domein vast voor GitHub Pages. De DNS-instellingen en HTTPS moeten ook bij de domeinprovider en in GitHub Pages correct zijn ingesteld. Controleer na publicatie dat HTTP en het domein zonder www permanent doorverwijzen naar https://www.veloclublent.nl/.
+Het hoofddomein is https://www.veloclublent.nl/. De live domeinen en HTTPS worden beheerd via Vercel en de domeinprovider. Het bestand CNAME is alleen van toepassing bij gebruik van GitHub Pages. Controleer na publicatie dat HTTP en het domein zonder www permanent doorverwijzen naar https://www.veloclublent.nl/.
 
 Iedere HTML-pagina bevat een absolute canonieke URL; de homepage verwijst naar de domeinroot. Op de homepage staan JSON-LD-organisatiegegevens voor Vélo Club Lent. robots.txt staat crawlen toe en verwijst naar sitemap.xml, waarin de acht hoofdpagina's staan.
 
