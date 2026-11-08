@@ -1594,6 +1594,13 @@ footer {
     height: 96px;
 }
 
+/* Vul de brede logovakken met het vierkante WAVE-logo. */
+.sponsor-card img.sponsor-logo-wave,
+.footer-sponsors img.sponsor-logo-wave {
+    object-fit: cover;
+    object-position: center;
+}
+
 @media (max-width: 1050px) {
     .menu-toggle {
         display: block;

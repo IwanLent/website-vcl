@@ -146,6 +146,18 @@ De website is geschikt voor GitHub Pages:
 3. Open de GitHub Pages-instellingen.
 4. Selecteer de branch die gepubliceerd moet worden.
 
+## Aanmeldformulier
+
+`/aanmelden` opent de map `aanmelden/` en stuurt bezoekers automatisch door naar:
+
+```text
+https://cryptpad.fr/form/#/2/form/view/6IyG0OKafDZb28OvufimeQgPawuQjio+FRWXxuv9qqU/
+```
+
+De pagina `aanmelden/index.html` gebruikt een meta-refresh na 1 seconde. Google interpreteert een meta-refresh met een vertraging groter dan 0 als tijdelijk; zie [Google Search Central](https://developers.google.com/search/docs/crawling-indexing/301-redirects). Dit werkt ook zonder JavaScript. De pagina bevat tevens een directe link naar het formulier. Behoud bij wijzigingen het letterlijke `#`-teken en de `+` in beide URL's; gebruik geen URL-encoding op de volledige URL.
+
+GitHub Pages serveert statische bestanden en biedt in deze repository geen instelbare HTTP-302-redirect. Voor een echte HTTP-302 is een redirect bij een proxy of andere hosting nodig. De doorverwijspagina staat op `noindex` en wordt niet opgenomen in `sitemap.xml`.
+
 ## Technische vereisten
 
 - Geen build-stappen nodig
