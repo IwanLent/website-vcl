@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routes zondag - VCL Lent</title>
+    <meta name="description" content="Bekijk de zondagritten van Vélo Club Lent vanuit Lent bij Nijmegen. Ontdek de routes, afstanden en praktische informatie over vertrek.">
+    <link rel="canonical" href="https://www.veloclublent.nl/routes-sunday.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tmcw/togeojson@5.8.1/dist/togeojson.umd.js"></script>
+    <script src="scripts/maps.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#inhoud">Naar de inhoud</a>
+    <header>
+        <nav class="main-nav" role="navigation" aria-label="Hoofdnavigatie">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="routes/images/logo.jpg" alt="Vélo Club Lent Logo" class="logo-image">
+                    <div class="logo-text">
+                        <span class="logo-top">vélo club</span>
+                        <span class="logo-bottom">LENT</span>
+                    </div>
+                </a>
+            </div>
+            <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
+                <span aria-hidden="true" class="hamburger"></span>
+                <span class="menu-text">Menu</span>
+            </button>
+            <ul class="nav-links" id="menu-items">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="meefietsen.html">Meefietsen</a></li>
+                <li><a href="about.html">Over ons</a></li>
+                <li><a href="routes.html">Routes donderdag</a></li>
+                <li><a href="routes-sunday.html" aria-current="page">Routes zondag</a></li>
+                <li><a href="safety.html">Veiligheid & regels</a></li>
+                <li><a href="photos.html">Foto's</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a class="nav-register" href="aanmelden/">Aanmelden</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="inhoud">
+        <section class="routes-header">
+            <h1>Zondagse routes</h1>
+            <p>Langere ritten voor de zondagochtend</p>
+        </section>
+
+        <div class="routes-grid">
+            <!-- Kootwijk Route -->
+            <div class="route-card">
+                <div class="route-map" id="map-kootwijk"></div>
+                <div class="route-content">
+                    <h2>Kootwijk</h2>
+                    <div class="route-meta">
+                        <span>Afstand: 103 km</span>
+                        <span>Hoogtemeters: 250 hm</span>
+                    </div>
+                    <p>Een uitdagende route door de Veluwe met prachtige uitzichten en afwisselend terrein.</p>
+                    <a href="https://www.komoot.com/nl-nl/tour/2055333587" class="btn">Bekijk op Komoot</a>
+                </div>
+            </div>
+
+            <!-- De 3 STUWWALLEN Route -->
+            <div class="route-card">
+                <div class="route-map" id="map-stuwwallen"></div>
+                <div class="route-content">
+                    <h2>De 3 STUWWALLEN</h2>
+                    <div class="route-meta">
+                        <span>Afstand: 139 km</span>
+                        <span>Hoogtemeters: 830 hm</span>
+                    </div>
+                    <p>Een pittige route langs drie stuwwallen in de regio, met lekker wat hoogtemeters.</p>
+                    <a href="https://www.komoot.com/nl-nl/tour/1150071633" class="btn">Bekijk op Komoot</a>
+                </div>
+            </div>
+
+            <!-- Rondje zuid via Venray Route -->
+            <div class="route-card">
+                <div class="route-map" id="map-venray"></div>
+                <div class="route-content">
+                    <h2>Rondje zuid via Venray</h2>
+                    <div class="route-meta">
+                        <span>Afstand: 121 km</span>
+                        <span>Hoogtemeters: 280 hm</span>
+                    </div>
+                    <p>Een mooie route door het zuiden van de regio en door Duitsland weer terug.</p>
+                    <a href="https://www.komoot.com/nl-nl/tour/2110982347" class="btn">Bekijk op Komoot</a>
+                </div>
+            </div>
+
+            <!-- De VCL Classic Maaswaal -->
+            <div class="route-card">
+                <div class="route-map" id="map-maaswaal2"></div>
+                <div class="route-content">
+                    <h2>De VCL Classic Maaswaal</h2>
+                    <div class="route-meta">
+                        <span>Afstand: 101 km</span>
+                        <span>Hoogtemeters: 180 hm</span>
+                    </div>
+                    <p>Een rondje stoemen op de dijken langs de Maas en de Waal.</p>
+                    <a href="https://www.komoot.com/nl-nl/tour/2065939802" class="btn">Bekijk op Komoot</a>
+                </div>
+            </div>
+
+            <!-- veluwezoom -->
+            <div class="route-card">
+                <div class="route-map" id="map-veluwezoom"></div>
+                <div class="route-content">
+                    <h2>Veluwezoom</h2>
+                    <div class="route-meta">
+                        <span>Afstand: 105 km</span>
+                        <span>Hoogtemeters: 400 hm</span>
+                    </div>
+                    <p>Een heerlijke glooiende rit over de Veluwezoom.</p>
+                    <a href="https://www.komoot.com/nl-nl/tour/2097641502" class="btn">Bekijk op Komoot</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="routes-info">
+            <div class="info-content">
+                <h2>Belangrijke informatie</h2>
+                <p>Vertrekplaats: Van der Valk Lent</p>
+                <p>Vertrektijd: 8:30 uur</p>
+                <p>We rijden in groepsverband met een wegkapitein en laten niemand achter.</p>
+                <p>Naast de routes hierboven wordt er ook vaak een andere route gereden.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>E-mail: <a href="mailto:VeloClubLent@gmail.com">VeloClubLent@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-sponsors" aria-label="Sponsoren">
+            <a href="https://cafe-etenendrinken.nl/lent/" class="footer-sponsor-main" target="_blank" rel="noopener noreferrer">
+                <span class="sponsor-label">Hoofdsponsor</span>
+                <img src="Sponsorlogos/eten-en-drinken.svg" alt="Eten en Drinken Lent">
+            </a>
+            <a href="https://wavenijmegen.nl/" target="_blank" rel="noopener noreferrer">
+                <span class="sponsor-label">Sponsor</span>
+                <img class="sponsor-logo-wave" src="Sponsorlogos/Wave_logo_RGB_Avatar_blauw_groen.png" alt="WAVE Massage Nijmegen">
+            </a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VCL Lent. Alle rechten voorbehouden.</p>
+            
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

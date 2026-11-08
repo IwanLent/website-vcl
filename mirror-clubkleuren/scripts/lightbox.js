@@ -1,0 +1,121 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImage = document.querySelector('.lightbox-image');
+    const photoButtons = document.querySelectorAll('.photo-button');
+    const closeButton = document.querySelector('.lightbox-close');
+    const prevButton = document.querySelector('.lightbox-prev');
+    const nextButton = document.querySelector('.lightbox-next');
+
+    if (!lightbox || !lightboxImage || !closeButton || !prevButton || !nextButton || photoButtons.length === 0) {
+        return;
+    }
+
+    let currentPhotoIndex = 0;
+    let opener = null;
+    const photos = Array.from(document.querySelectorAll('.photo-item img'));
+
+    if (photos.length === 0) {
+        return;
+    }
+
+    // Open lightbox
+    photoButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            opener = button;
+            currentPhotoIndex = index;
+            openLightbox();
+        });
+    });
+
+    function openLightbox() {
+        updateLightbox();
+        lightbox.hidden = false;
+        document.body.style.overflow = 'hidden';
+        closeButton.focus();
+    }
+
+    // Close lightbox
+    function closeLightbox() {
+        lightbox.hidden = true;
+        document.body.style.overflow = '';
+        opener?.focus();
+    }
+
+    closeButton.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Navigate photos
+    function updateLightbox() {
+        const currentPhoto = photos[currentPhotoIndex];
+        lightboxImage.src = currentPhoto.currentSrc || currentPhoto.src;
+        lightboxImage.alt = currentPhoto.alt;
+    }
+
+    function showNextPhoto() {
+        currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+        updateLightbox();
+    }
+
+    function showPrevPhoto() {
+        currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+        updateLightbox();
+    }
+
+    nextButton.addEventListener('click', showNextPhoto);
+    prevButton.addEventListener('click', showPrevPhoto);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.hidden) return;
+
+        if (e.key === 'Tab') {
+            const controls = [closeButton, prevButton, nextButton];
+            const index = controls.indexOf(document.activeElement);
+            e.preventDefault();
+            controls[(index + (e.shiftKey ? -1 : 1) + controls.length) % controls.length].focus();
+            return;
+        }
+
+        switch (e.key) {
+            case 'Escape':
+                closeLightbox();
+                break;
+            case 'ArrowRight':
+                showNextPhoto();
+                break;
+            case 'ArrowLeft':
+                showPrevPhoto();
+                break;
+        }
+    });
+
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    lightbox.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                showNextPhoto();
+            } else {
+                showPrevPhoto();
+            }
+        }
+    }
+}); 

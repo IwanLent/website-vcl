@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routes donderdag - VCL Lent</title>
+    <meta name="description" content="Ontdek de donderdagavondroutes van Vélo Club Lent rond Nijmegen en Lent. Bekijk de afstanden, hoogtemeters en routes op Komoot.">
+    <link rel="canonical" href="https://www.veloclublent.nl/routes.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tmcw/togeojson@5.8.1/dist/togeojson.umd.js"></script>
+    <script src="scripts/maps.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#inhoud">Naar de inhoud</a>
+    <header>
+        <nav class="main-nav" role="navigation" aria-label="Hoofdnavigatie">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="routes/images/logo.jpg" alt="Vélo Club Lent Logo" class="logo-image">
+                    <div class="logo-text">
+                        <span class="logo-top">vélo club</span>
+                        <span class="logo-bottom">LENT</span>
+                    </div>
+                </a>
+            </div>
+            <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
+                <span aria-hidden="true" class="hamburger"></span>
+                <span class="menu-text">Menu</span>
+            </button>
+            <ul class="nav-links" id="menu-items">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="meefietsen.html">Meefietsen</a></li>
+                <li><a href="about.html">Over ons</a></li>
+                <li><a href="routes.html" aria-current="page">Routes donderdag</a></li>
+                <li><a href="routes-sunday.html">Routes zondag</a></li>
+                <li><a href="safety.html">Veiligheid & regels</a></li>
+                <li><a href="photos.html">Foto's</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a class="nav-register" href="aanmelden/">Aanmelden</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="inhoud">
+        <section class="routes-header">
+            <h1>Donderdagse routes</h1>
+            <p>Onze routes voor de donderdagavond</p>
+        </section>
+
+        <div class="routes-grid">
+            <!-- WaalRijn Pad -->
+            <div class="route-card">
+                <div class="route-map" id="map-waalrijn"></div>
+                <div class="route-content">
+                    <h2>WaalRijn Pad</h2>
+                    <div class="route-meta">
+                        <span>Afstand: 45,6 km</span>
+                        <span>Hoogtemeters: 60 hm</span>
+                    </div>
+                    <p>Een mooie route langs de Waal en Rijn, met prachtige uitzichten over het water.</p>
+                    <a href="https://www.komoot.com/nl-nl/tour/1495743184" class="btn">Bekijk op Komoot</a>
+                </div>
+            </div>
+
+            <!-- Italiaanse weg Route -->
+            <div class="route-card">
+                <div class="route-map" id="map-italiaanseweg"></div>
+                <div class="route-content">
+                    <h2>Italiaanse weg</h2>
+                    <div class="route-meta">
+                        <span>Afstand: 56,9 km</span>
+                        <span>Hoogtemeters: 200 hm</span>
+                    </div>
+                    <p>Een uitdagende route met een stuk over de Italiaanseweg, bekend om zijn karakteristieke klinkers.</p>
+                    <a href="https://www.komoot.com/nl-nl/tour/1507847976" class="btn">Bekijk op Komoot</a>
+                </div>
+            </div>
+
+            <!-- Kleverberg Route -->
+            <div class="route-card">
+                <div class="route-map" id="map-kleverberg"></div>
+                <div class="route-content">
+                    <h2>Kleverberg</h2>
+                    <div class="route-meta">
+                        <span>Afstand: 54,5 km</span>
+                        <span>Hoogtemeters: 250 hm</span>
+                    </div>
+                    <p>Een pittige route door het Duitse achterland met de Kleverberg als hoogtepunt.</p>
+                    <a href="https://www.komoot.com/nl-nl/tour/2097349482" class="btn">Bekijk op Komoot</a>
+                </div>
+            </div>
+
+            <!-- Posbank Route -->
+            <div class="route-card">
+                <div class="route-map" id="map-posbank"></div>
+                <div class="route-content">
+                    <h2>Posbank</h2>
+                    <div class="route-meta">
+                        <span>Afstand: 65,3 km</span>
+                        <span>Hoogtemeters: 270 hm</span>
+                    </div>
+                    <p>Een klassieke route naar de Posbank, met prachtige uitzichten over de Veluwezoom.</p>
+                    <a href="https://www.komoot.com/nl-nl/tour/2098591535" class="btn">Bekijk op Komoot</a>
+                </div>
+            </div>
+
+            <!-- Betuwe Route -->
+            <div class="route-card">
+                <div class="route-map" id="map-betuwe"></div>
+                <div class="route-content">
+                    <h2>Betuwe</h2>
+                    <div class="route-meta">
+                        <span>Afstand: 60,9 km</span>
+                        <span>Hoogtemeters: 70 hm</span>
+                    </div>
+                    <p>Een vlakke route over de dijk langs de Waal en de Rijn.</p>
+                    <a href="https://www.komoot.com/nl-nl/tour/2098599755" class="btn">Bekijk op Komoot</a>
+                </div>
+            </div>
+
+            <!-- MaasWaal Route -->
+            <div class="route-card">
+                <div class="route-map" id="map-maaswaal"></div>
+                <div class="route-content">
+                    <h2>MaasWaal</h2>
+                    <div class="route-meta">
+                        <span>Afstand: 57,8 km</span>
+                        <span>Hoogtemeters: 80 hm</span>
+                    </div>
+                    <p>Een gevarieerde route langs de Maas en door het Waalse landschap.</p>
+                    <a href="https://www.komoot.com/nl-nl/tour/2097947933" class="btn">Bekijk op Komoot</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="routes-info">
+            <div class="info-content">
+                <h2>Belangrijke informatie</h2>
+		<p>Op donderdagavond rijdt Vélo club Lent een rondje van ongeveer 2 uur.
+                <p>Vertrekplaats: Van der Valk Lent</p>
+                <p>Vertrektijden: 	April: 19:00 uur<br>
+			                Mei t/m Augustus: 19:30 uur<br>
+                			September: 19:00 uur</p>
+		<p>Aansluitend op de even weken een drankje bij Eten & Drinken en op de oneven weken bij Stroom</p>
+
+		</p>We rijden in groepen van maximaal 12 personen. Er is altijd een Piano Piano groep die 30–32 km/u rijdt. Zijn er meer personen dan vormen we een groep Gas op die Lolly die 34–36 km/u rijdt. Alle groepen rijden dezelfde route.
+
+                <p>"No drop ride",  we laten niemand achter.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>E-mail: <a href="mailto:VeloClubLent@gmail.com">VeloClubLent@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-sponsors" aria-label="Sponsoren">
+            <a href="https://cafe-etenendrinken.nl/lent/" class="footer-sponsor-main" target="_blank" rel="noopener noreferrer">
+                <span class="sponsor-label">Hoofdsponsor</span>
+                <img src="Sponsorlogos/eten-en-drinken.svg" alt="Eten en Drinken Lent">
+            </a>
+            <a href="https://wavenijmegen.nl/" target="_blank" rel="noopener noreferrer">
+                <span class="sponsor-label">Sponsor</span>
+                <img class="sponsor-logo-wave" src="Sponsorlogos/Wave_logo_RGB_Avatar_blauw_groen.png" alt="WAVE Massage Nijmegen">
+            </a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VCL Lent. Alle rechten voorbehouden.</p>
+            
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

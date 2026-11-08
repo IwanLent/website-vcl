@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "X-Robots-Tag": "noindex, nofollow"
+      },
+      "continue": true
+    },
+    {
+      "src": "^/aanmelden/?$",
+      "status": 302,
+      "headers": {
+        "Location": "https://cryptpad.fr/form/#/2/form/view/6IyG0OKafDZb28OvufimeQgPawuQjio+FRWXxuv9qqU/",
+        "Cache-Control": "no-store"
+      }
+    }
+  ]
+}
