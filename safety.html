@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a class="skip-link" href="#inhoud">Naar de inhoud</a>
     <header>
         <nav class="main-nav" role="navigation" aria-label="Hoofdnavigatie">
             <div class="logo">
@@ -20,8 +21,8 @@
                     </div>
                 </a>
             </div>
-            <button class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
-                <span class="hamburger"></span>
+            <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
+                <span aria-hidden="true" class="hamburger"></span>
                 <span class="menu-text">Menu</span>
             </button>
             <ul class="nav-links" id="menu-items">
@@ -33,11 +34,12 @@
                 <li><a href="safety.html" aria-current="page">Veiligheid & regels</a></li>
                 <li><a href="photos.html">Foto's</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a class="nav-register" href="aanmelden/">Aanmelden</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main id="inhoud">
         <section class="safety-header">
             <h1>Veiligheid & regels</h1>
             <p>Belangrijke informatie voor een veilige en plezierige fietstocht</p>
@@ -59,7 +61,7 @@
                         <li>Geef duidelijke signalen bij tegenliggers, afslaan of stoppen</li>
                         <li>Blijf in één rij rijden op smalle wegen</li>
                         <li>Let op elkaar en geef waarschuwingen door</li>
-                        <li>We maken GEEN foto's TIJDENS het fietsen i.v.m. de verkeersveiligheid</li>
+                        <li>We maken geen foto's tijdens het fietsen, voor de verkeersveiligheid</li>
                     </ul>
                 </article>
 
@@ -83,58 +85,58 @@
                         <li>Houd je banden op spanning</li>
                         <li>Controleer je ketting</li>
 		        <li>Je rijdt altijd met een helm</li>
-                        <li>Je hebt een fiets mee klikpedalen</li>
+                        <li>Je hebt een fiets met klikpedalen</li>
                     </ul>
                 </article>
             </div>
 
             <section class="video-section">
-                <h2>Handsignalen & Groepsrijden</h2>
+                <h2>Handsignalen en groepsrijden</h2>
                 <div class="signals-grid">
                     <div class="signal-card">
                         <h3>Handsignalen</h3>
                         <div class="signal-list">
                             <div class="signal-item">
-                                <span class="signal-icon">👆</span>
+                                <span class="signal-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></span>
                                 <p><strong>Arm omhoog:</strong> Stoppen</p>
                             </div>
                             <div class="signal-item">
-                                <span class="signal-icon">👈</span>
+                                <span class="signal-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg></span>
                                 <p><strong>Arm links:</strong> Linksaf</p>
                             </div>
                             <div class="signal-item">
-                                <span class="signal-icon">👉</span>
+                                <span class="signal-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
                                 <p><strong>Arm rechts:</strong> Rechtsaf</p>
                             </div>
                             <div class="signal-item">
-                                <span class="signal-icon">👇</span>
+                                <span class="signal-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14m-6-6 6 6 6-6"/></svg></span>
                                 <p><strong>Arm omlaag wijzend:</strong> Obstakel op de weg</p>
                             </div>
-                           
+
                         </div>
                     </div>
 
                     <div class="signal-card">
-                        <h3>Tips voor Groepsrijden</h3>
+                        <h3>Tips voor groepsrijden</h3>
                         <div class="tips-list">
                             <div class="tip-item">
-                                <span class="tip-icon">🚴‍♂️</span>
+                                <span class="tip-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="17" r="3"/><circle cx="19" cy="17" r="3"/><path d="m5 17 4-8 5 8m-7-8h5m-3 0 10 8m-6-12h4l2 12"/></svg></span>
                                 <p>Houd ongeveer 30-50 cm afstand tot het wiel voor je</p>
                             </div>
                             <div class="tip-item">
-                                <span class="tip-icon">📢</span>
+                                <span class="tip-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 13-5v14L3 14Zm13 0h5m-15 4 2 6"/></svg></span>
                                 <p>Geef signalen altijd door aan achterliggers</p>
                             </div>
                             <div class="tip-item">
-                                <span class="tip-icon">👥</span>
+                                <span class="tip-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3m2-17a3 3 0 0 1 0 6m1 5a5 5 0 0 1 3 5v1"/></svg></span>
                                 <p>Rijd niet met meer dan twee personen naast elkaar</p>
                             </div>
                             <div class="tip-item">
-                                <span class="tip-icon">🔄</span>
+                                <span class="tip-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5m5 0a8 8 0 1 1-2-7"/></svg></span>
                                 <p>We draaien altijd met de klok mee</p>
                             </div>
                             <div class="tip-item">
-                                <span class="tip-icon">⚠️</span>
+                                <span class="tip-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 10 18H2Zm0 6v5m0 3h.01"/></svg></span>
                                 <p>Waarschuw voor naderende auto's, fietsers of obstakels</p>
                             </div>
                         </div>
@@ -150,7 +152,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>Email: <a href="mailto:VeloClubLent@gmail.com">VeloClubLent@gmail.com</a></p>
+                <p>E-mail: <a href="mailto:VeloClubLent@gmail.com">VeloClubLent@gmail.com</a></p>
             </div>
         </div>
         <div class="footer-sponsors" aria-label="Sponsoren">
@@ -165,10 +167,10 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 VCL Lent. Alle rechten voorbehouden.</p>
-            <span class="site-version">v0.3</span>
+
         </div>
     </footer>
 
     <script src="scripts/main.js"></script>
 </body>
-</html> 
+</html>

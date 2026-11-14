@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let currentPhotoIndex = 0;
+    let opener = null;
     const photos = Array.from(document.querySelectorAll('.photo-item img'));
 
     if (photos.length === 0) {
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Open lightbox
     photoButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
+            opener = button;
             currentPhotoIndex = index;
             openLightbox();
         });
@@ -36,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function closeLightbox() {
         lightbox.hidden = true;
         document.body.style.overflow = '';
+        opener?.focus();
     }
 
     closeButton.addEventListener('click', closeLightbox);
@@ -68,6 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (lightbox.hidden) return;
+
+        if (e.key === 'Tab') {
+            const controls = [closeButton, prevButton, nextButton];
+            const index = controls.indexOf(document.activeElement);
+            e.preventDefault();
+            controls[(index + (e.shiftKey ? -1 : 1) + controls.length) % controls.length].focus();
+            return;
+        }
 
         switch (e.key) {
             case 'Escape':

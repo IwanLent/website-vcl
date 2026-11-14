@@ -13,6 +13,7 @@
     <script src="scripts/maps.js" defer></script>
 </head>
 <body>
+    <a class="skip-link" href="#inhoud">Naar de inhoud</a>
     <header>
         <nav class="main-nav" role="navigation" aria-label="Hoofdnavigatie">
             <div class="logo">
@@ -24,8 +25,8 @@
                     </div>
                 </a>
             </div>
-            <button class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
-                <span class="hamburger"></span>
+            <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
+                <span aria-hidden="true" class="hamburger"></span>
                 <span class="menu-text">Menu</span>
             </button>
             <ul class="nav-links" id="menu-items">
@@ -37,14 +38,15 @@
                 <li><a href="safety.html">Veiligheid & regels</a></li>
                 <li><a href="photos.html">Foto's</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a class="nav-register" href="aanmelden/">Aanmelden</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main id="inhoud">
         <section class="routes-header">
             <h1>Donderdagse routes</h1>
-            <p>Ontdek onze donderdagse fietstochten</p>
+            <p>Onze routes voor de donderdagavond</p>
         </section>
 
         <div class="routes-grid">
@@ -154,7 +156,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>Email: <a href="mailto:VeloClubLent@gmail.com">VeloClubLent@gmail.com</a></p>
+                <p>E-mail: <a href="mailto:VeloClubLent@gmail.com">VeloClubLent@gmail.com</a></p>
             </div>
         </div>
         <div class="footer-sponsors" aria-label="Sponsoren">
@@ -169,10 +171,10 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 VCL Lent. Alle rechten voorbehouden.</p>
-            <span class="site-version">v0.3</span>
+
         </div>
     </footer>
 
     <script src="scripts/main.js"></script>
 </body>
-</html> 
+</html>

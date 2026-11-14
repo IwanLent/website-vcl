@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadGPX(map, gpxUrl) {
         try {
             const response = await fetch(gpxUrl);
+            if (!response.ok) throw new Error('GPX-bestand niet bereikbaar: ' + response.status);
             const gpxText = await response.text();
             const parser = new DOMParser();
             const gpxDoc = parser.parseFromString(gpxText, 'text/xml');
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Teken de route lijn
                 const routeLine = L.geoJSON(geoJson, {
                     style: {
-                        color: '#007984',
+                        color: '#126e64',
                         weight: 3,
                         opacity: 0.8
                     }
@@ -125,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background-color: #007984;
+            background-color: #126e64;
             border: 2px solid white;
             box-shadow: 0 0 4px rgba(0,0,0,0.4);
         }

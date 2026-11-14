@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a class="skip-link" href="#inhoud">Naar de inhoud</a>
     <header>
         <nav class="main-nav" role="navigation" aria-label="Hoofdnavigatie">
             <div class="logo">
@@ -20,8 +21,8 @@
                     </div>
                 </a>
             </div>
-            <button class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
-                <span class="hamburger"></span>
+            <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
+                <span aria-hidden="true" class="hamburger"></span>
                 <span class="menu-text">Menu</span>
             </button>
             <ul class="nav-links" id="menu-items">
@@ -33,24 +34,25 @@
                 <li><a href="safety.html">Veiligheid & regels</a></li>
                 <li><a href="photos.html">Foto's</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a class="nav-register" href="aanmelden/">Aanmelden</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main id="inhoud">
         <section class="join-header">
             <h1>Meefietsen bij VCL</h1>
             <p><strong>Zin om samen te wielrennen?</strong></p>
             <p>Bij Vélo Club Lent fietsen we samen voor de sport én de gezelligheid. We rijden mooie routes in de omgeving van Lent en Nijmegen, in twee groepen met een verschillend tempo.</p>
-            <p>Lijkt het je leuk om een keer mee te fietsen? Je bent welkom!</p>
+            <p>Lijkt het je leuk om een keer mee te fietsen? Je bent welkom.</p>
         </section>
         <div class="join-content">
             <section aria-labelledby="vertrek-title">
                 <h2 id="vertrek-title">Wanneer en waar fietsen we?</h2>
                 <p>We vertrekken vanaf <strong>Van der Valk in Lent</strong>.</p>
                 <ul>
-                    <li><strong>Donderdagavond:</strong> om 19.00 of 19.30 uur, afhankelijk van hoe laat het donker wordt.</li>
-                    <li><strong>Zondagochtend:</strong> om 8.30 uur.</li>
+                    <li><strong>Donderdagavond:</strong> om 19:00 of 19:30 uur, afhankelijk van hoe laat het donker wordt.</li>
+                    <li><strong>Zondagochtend:</strong> om 08:30 uur.</li>
                     <li><strong>Seizoen:</strong> op donderdag fietsen we tijdens het wielerseizoen. Op zondag worden regelmatig ritten georganiseerd.</li>
                 </ul>
                 <p>Vertrektijden kunnen wijzigen. Daarom vragen we nieuwe deelnemers zich vooraf aan te melden.</p>
@@ -71,7 +73,7 @@
             </section>
             <section aria-labelledby="aanmelden-title">
                 <h2 id="aanmelden-title">Een keer meefietsen?</h2>
-                <p>Leuk! <strong>Meld je vooraf even aan</strong>, zodat we je kunnen informeren over de juiste vertrektijd en eventuele wijzigingen.</p>
+                <p><strong>Meld je vooraf even aan</strong>, zodat we je kunnen informeren over de juiste vertrektijd en eventuele wijzigingen.</p>
                 <p>Stuur een mail naar <a href="mailto:VeloClubLent@gmail.com"><strong>VeloClubLent@gmail.com</strong></a> en laat weten wanneer je wilt aansluiten.</p>
                 <p class="join-action"><a class="btn" href="mailto:VeloClubLent@gmail.com?subject=Aanmelden%20meefietsen%20VCL">Aanmelden om mee te fietsen</a></p>
             </section>
@@ -95,7 +97,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>Email: <a href="mailto:VeloClubLent@gmail.com">VeloClubLent@gmail.com</a></p>
+                <p>E-mail: <a href="mailto:VeloClubLent@gmail.com">VeloClubLent@gmail.com</a></p>
             </div>
         </div>
         <div class="footer-sponsors" aria-label="Sponsoren">
@@ -110,14 +112,14 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 VCL Lent. Alle rechten voorbehouden.</p>
-            <span class="site-version">v0.3</span>
+
         </div>
 	<p class="sponsor-call">
-        Wil je ook sponsor worden? Neem dan contact op met 
+        Wil je ook sponsor worden? Neem dan contact op met
         <a href="mailto:VeloClubLent@gmail.com">VeloClubLent@gmail.com</a>.
     </p>
     </footer>
 
     <script src="scripts/main.js"></script>
 </body>
-</html> 
+</html>

@@ -27,6 +27,7 @@
     </script>
 </head>
 <body>
+    <a class="skip-link" href="#inhoud">Naar de inhoud</a>
     <header>
         <nav class="main-nav" role="navigation" aria-label="Hoofdnavigatie">
             <div class="logo">
@@ -38,8 +39,8 @@
                     </div>
                 </a>
             </div>
-            <button class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
-                <span class="hamburger"></span>
+            <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
+                <span aria-hidden="true" class="hamburger"></span>
                 <span class="menu-text">Menu</span>
             </button>
             <ul class="nav-links" id="menu-items">
@@ -51,22 +52,40 @@
                 <li><a href="safety.html">Veiligheid & regels</a></li>
                 <li><a href="photos.html">Foto's</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a class="nav-register" href="aanmelden/">Aanmelden</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <!-- Vervang src met het juiste pad naar de header afbeelding -->
-            <img src="routes/images/header.jpg" alt="Fietsers op een mooie route" class="hero-image">
+    <main id="inhoud">
+        <section class="hero" aria-labelledby="hero-title">
             <div class="hero-content">
-                <h1>Welkom bij VCL</h1>
-                <p>Ontdek de mooiste fietsroutes samen met enthousiaste fietsers</p>
+                <p class="eyebrow">Wielrennen vanuit Lent</p>
+                <h1 id="hero-title">Samen fietsen<br><span>vanuit Lent</span></h1>
+                <p>Donderdagavond in het seizoen. Regelmatig op zondagochtend. Twee groepen, hetzelfde clubgevoel.</p>
+                <div class="hero-actions">
+                    <a class="btn" href="meefietsen.html">Een keer meefietsen</a>
+                    <a class="text-link" href="routes.html">Bekijk de routes</a>
+                </div>
             </div>
+            <figure class="hero-visual">
+                <div class="hero-image-frame">
+                    <img src="routes/images/club-foto.jpg" alt="Clubleden van Vélo Club Lent samen met hun racefietsen" class="hero-image" width="300" height="148" fetchpriority="high">
+                </div>
+                <figcaption><span>Vélo Club Lent</span><span>Samen uit, samen thuis</span></figcaption>
+                <div class="ride-days">
+                    <p><strong>Donderdagavond</strong>Tijdens het wielerseizoen</p>
+                    <p><strong>Zondagochtend</strong>Regelmatig samen op pad</p>
+                </div>
+            </figure>
         </section>
 
         <section class="intro">
-            <h2>Over onze club</h2>
+            <div class="section-heading">
+                <h2>Onze club<br>Jouw peloton</h2>
+                <p class="section-note">Twee tempo’s. Niemand blijft achter.</p>
+            </div>
+            <div class="intro-copy">
             <p>Vélo Club Lent (VCL) is een gezellige fietsclub uit Lent, bij Nijmegen, voor wielrenners die graag samen fietsen.</p>
             <p>Tijdens het wielerseizoen rijden we op donderdagavond verschillende <a href="routes.html">routes</a> in de omgeving van Nijmegen. We fietsen in twee groepen:</p>
             <ul>
@@ -75,7 +94,8 @@
             </ul>
             <p>Ook op zondagochtend trekken we regelmatig samen eropuit.</p>
             <p>We laten niemand achter. Bij een lekke band of een onverwacht slechte dag wachten we op elkaar. Wel verwachten we dat je het tempo van je groep kunt volgen en na een bocht zelfstandig weer kunt aansluiten.</p>
-            <p class="join-action"><a class="btn" href="meefietsen.html">Een keer meefietsen?</a></p>
+            <p class="join-action"><a class="text-link" href="meefietsen.html">Meer over meefietsen</a></p>
+            </div>
         </section>
 
         <section class="highlights">
@@ -83,15 +103,15 @@
             <div class="highlights-grid">
                 <div class="highlight-item">
                     <h3>Gezelligheid</h3>
-                    <p>Geniet van gezellige tochten met gelijkgestemde fietsers</p>
+                    <p>Samen op de fiets, met ruimte voor een goed gesprek</p>
                 </div>
                 <div class="highlight-item">
                     <h3>Veiligheid</h3>
-                    <p>We rijden in een groep met duidelijke afspraken en een wegkapitein.</p>
+                    <p>Duidelijke afspraken, een wegkapitein en aandacht voor elkaar</p>
                 </div>
                 <div class="highlight-item">
                     <h3>Variatie</h3>
-                    <p>Ontdek verschillende routes en landschappen in de regio</p>
+                    <p>Van de dijken langs de Waal tot de heuvels rond Nijmegen</p>
                 </div>
             </div>
         </section>
@@ -115,7 +135,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>Email: <a href="mailto:VeloClubLent@gmail.com">VeloClubLent@gmail.com</a></p>
+                <p>E-mail: <a href="mailto:VeloClubLent@gmail.com">VeloClubLent@gmail.com</a></p>
             </div>
         </div>
         <div class="footer-sponsors" aria-label="Sponsoren">
@@ -130,14 +150,14 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 VCL Lent. Alle rechten voorbehouden.</p>
-            <span class="site-version">v0.3</span>
+
         </div>
 	<p class="sponsor-call">
-        Wil je ook sponsor worden? Neem dan contact op met 
+        Wil je ook sponsor worden? Neem dan contact op met
         <a href="mailto:VeloClubLent@gmail.com">VeloClubLent@gmail.com</a>.
     </p>
     </footer>
 
     <script src="scripts/main.js"></script>
 </body>
-</html> 
+</html>

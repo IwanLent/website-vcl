@@ -141,6 +141,8 @@ http://localhost:8000/
 
 De live website wordt gehost op Vercel en is gekoppeld aan de GitHub-repository. Publiceer wijzigingen via de productiebranch van het Vercel-project `website-vcl`. Een lokale commit is pas online nadat deze is gepusht en Vercel de deployment heeft afgerond.
 
+De hoofdmap bevat het goedgekeurde ontwerp uit `mirror-clubkleuren`. Pas toekomstige wijzigingen in de hoofdmap aan. De mirror blijft als afzonderlijke ontwerp- en previewversie bewaard, met zoekmachineblokkades. De productiepagina's hebben die blokkades niet; alleen de aanmeldfallback blijft op `noindex`. De productieconfiguratie behoudt de bestaande aanmeldredirect, `robots.txt` en `sitemap.xml`.
+
 De statische pagina's zijn daarnaast geschikt voor GitHub Pages:
 
 1. Push de wijzigingen naar de GitHub repository.

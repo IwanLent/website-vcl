@@ -1,30 +1,27 @@
-// Mobiele menu functionaliteit
 document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const hamburger = document.querySelector('.hamburger');
+    const toggle = document.querySelector('.menu-toggle');
+    const links = document.querySelector('.nav-links');
+    if (!toggle || !links) return;
 
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-            navLinks.classList.toggle('active');
-            
-            // Animate hamburger to X
-            hamburger.style.backgroundColor = isExpanded ? '' : 'transparent';
-            hamburger.style.transform = isExpanded ? '' : 'rotate(45deg)';
-            hamburger.style.transition = 'all 0.3s ease';
-        });
+    function setOpen(open) {
+        toggle.setAttribute('aria-expanded', String(open));
+        links.classList.toggle('active', open);
     }
-
-    // Sluit menu bij klik buiten menu
-    document.addEventListener('click', (e) => {
-        if (navLinks && navLinks.classList.contains('active') && 
-            !e.target.closest('.main-nav')) {
-            menuToggle.setAttribute('aria-expanded', 'false');
-            navLinks.classList.remove('active');
-            hamburger.style.backgroundColor = '';
-            hamburger.style.transform = '';
+    toggle.addEventListener('click', () => {
+        setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+    document.addEventListener('click', (event) => {
+        if (!event.target.closest('.main-nav')) setOpen(false);
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+            setOpen(false);
+            toggle.focus();
         }
     });
-}); 
+    links.addEventListener('click', (event) => {
+        if (event.target.closest('a')) setOpen(false);
+    });
+    const desktop = window.matchMedia('(min-width: 1200px)');
+    desktop.addEventListener('change', () => setOpen(false));
+});
